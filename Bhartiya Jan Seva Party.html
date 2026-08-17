@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhartiya Jan Seva Party</title>
+  <link rel="icon" href="Screenshot 2026-05-21 164432.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --saffron: #FF6B1A;
+      --saffron-light: #FF8C42;
+      --saffron-dark: #CC4E00;
+      --gold: #D4A017;
+      --gold-light: #F5C842;
+      --cream: #FDF6E3;
+      --deep-green: #1A3A2A;
+      --forest: #2D5A3D;
+      --charcoal: #1C1C1C;
+      --warm-white: #FEFAF4;
+      --stone: #8B7355;
+      --maroon: #6B1A1A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--warm-white);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--charcoal); }
+    ::-webkit-scrollbar-thumb { background: var(--saffron); border-radius: 3px; }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      background: rgba(28,28,28,0.97) !important;
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--saffron);
+      padding: 0.6rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--gold) !important;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+    }
+
+    .navbar-brand span {
+      color: var(--saffron);
+    }
+
+    .nav-link {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.85) !important;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem !important;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%; right: 50%;
+      height: 2px;
+      background: var(--saffron);
+      transition: left 0.3s, right 0.3s;
+    }
+
+    .nav-link:hover { color: var(--gold) !important; }
+    .nav-link:hover::after { left: 1rem; right: 1rem; }
+
+    /* ─── TICKER ─── */
+    .ticker-wrap {
+      background: var(--saffron);
+      overflow: hidden;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--saffron-dark);
+    }
+
+    .ticker-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: ticker 35s linear infinite;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: white;
+      font-weight: 600;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(100vw); }
+      to { transform: translateX(-100%); }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(255,107,26,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(212,160,23,0.10) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(28,28,28,0.95) 0%, rgba(28,28,28,0.85) 50%, rgba(28,28,28,0.98) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/1/19/Maharana_Pratap.jpg') center/cover no-repeat;
+    }
+
+    /* Decorative geometric overlay */
+    .hero-pattern {
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(255,107,26,0.03) 0px, rgba(255,107,26,0.03) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(-45deg, rgba(212,160,23,0.03) 0px, rgba(212,160,23,0.03) 1px, transparent 1px, transparent 60px);
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 2rem;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-emblem {
+      width: 90px; height: 90px;
+      margin: 0 auto 1.5rem;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(212,160,23,0.08);
+      box-shadow: 0 0 40px rgba(212,160,23,0.2), inset 0 0 20px rgba(212,160,23,0.05);
+      animation: pulse 3s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 40px rgba(212,160,23,0.2), inset 0 0 20px rgba(212,160,23,0.05); }
+      50% { box-shadow: 0 0 60px rgba(212,160,23,0.35), inset 0 0 30px rgba(212,160,23,0.1); }
+    }
+
+    .hero-emblem i {
+      font-size: 2.5rem;
+      color: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-sub {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-shloka {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 2;
+      max-width: 600px;
+      margin: 0 auto 0.5rem;
+      border-left: 3px solid var(--saffron);
+      padding-left: 1.2rem;
+      text-align: left;
+    }
+
+    .hero-shloka-trans {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      font-style: italic;
+      text-align: left;
+      padding-left: 1.2rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-saffron {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.75rem 2rem;
+      background: var(--saffron);
+      color: white;
+      border: none;
+      border-radius: 0;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: all 0.3s;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-saffron:hover {
+      background: var(--saffron-light);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255,107,26,0.4);
+    }
+
+    .btn-outline-gold {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.75rem 2rem;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 0;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: all 0.3s;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: var(--charcoal);
+      transform: translateY(-2px);
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.4);
+      font-size: 1.5rem;
+      animation: bounce 2s ease infinite;
+      z-index: 2;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--charcoal);
+      border-top: 3px solid var(--saffron);
+      border-bottom: 3px solid var(--saffron);
+      padding: 2rem 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      border-right: 1px solid rgba(255,107,26,0.2);
+      padding: 0.5rem 1rem;
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 2rem;
+      color: var(--saffron);
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.3rem;
+    }
+
+    /* ─── SECTION HEADERS ─── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .section-title.light { color: white; }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .section-divider span {
+      height: 1px;
+      width: 60px;
+      background: var(--saffron);
+      display: block;
+    }
+
+    .section-divider i { color: var(--gold); font-size: 0.9rem; }
+
+    /* ─── INTRO ─── */
+    #intro { padding: 5rem 0; background: var(--warm-white); }
+
+    .intro-card {
+      background: white;
+      border: 1px solid rgba(255,107,26,0.15);
+      border-left: 4px solid var(--saffron);
+      border-radius: 4px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -1rem; left: 1rem;
+      font-size: 8rem;
+      color: rgba(255,107,26,0.06);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .intro-card p {
+      font-size: 1.15rem;
+      line-height: 2;
+      color: #333;
+    }
+
+    /* ─── THREE PILLARS ─── */
+    .pillars-section {
+      background: var(--charcoal);
+      padding: 5rem 0;
+    }
+
+    .pillar-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,107,26,0.2);
+      border-top: 3px solid var(--saffron);
+      padding: 2rem 1.5rem;
+      height: 100%;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .pillar-card:hover {
+      background: rgba(255,107,26,0.07);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .pillar-icon {
+      width: 60px; height: 60px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.2rem;
+      background: rgba(212,160,23,0.07);
+    }
+
+    .pillar-icon i { font-size: 1.5rem; color: var(--gold); }
+
+    .pillar-card h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      color: var(--saffron);
+      margin-bottom: 0.8rem;
+    }
+
+    .pillar-card p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+    }
+
+    /* ─── IDEOLOGY ─── */
+    #ideology { padding: 5rem 0; background: var(--cream); }
+
+    .ideology-grid {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0;
+    }
+
+    .ideology-text {
+      padding: 0 2.5rem 0 0;
+      font-size: 1.1rem;
+      line-height: 1.95;
+      color: #3a3a3a;
+    }
+
+    .ideology-divider {
+      background: linear-gradient(180deg, transparent, var(--saffron), transparent);
+      width: 1px;
+    }
+
+    .ideology-points {
+      padding: 0 0 0 2.5rem;
+    }
+
+    .ideology-point {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+      align-items: flex-start;
+    }
+
+    .ideology-point-num {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.4rem;
+      color: var(--saffron);
+      line-height: 1;
+      min-width: 2rem;
+    }
+
+    .ideology-point-text h5 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+
+    .ideology-point-text p {
+      font-size: 0.98rem;
+      color: #555;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ─── LEADER / IDOLS TIMELINE ─── */
+    #leader {
+      padding: 5rem 0;
+      background: var(--charcoal);
+      position: relative;
+    }
+
+    #leader::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 100% 50%, rgba(255,107,26,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .leader-frame {
+      position: relative;
+      display: inline-block;
+    }
+
+    .leader-frame img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 4px;
+      filter: sepia(10%) contrast(1.05);
+      display: block;
+    }
+
+    .leader-frame::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: -12px;
+      right: 12px; bottom: 12px;
+      border: 2px solid var(--saffron);
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    .leader-frame::after {
+      content: '';
+      position: absolute;
+      top: 12px; left: 12px;
+      right: -12px; bottom: -12px;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .leader-frame img { position: relative; z-index: 1; }
+
+    .leader-info h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      line-height: 1.4;
+      margin-bottom: 0.4rem;
+    }
+
+    .leader-info .leader-title {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      color: var(--saffron);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .leader-info p {
+      color: rgba(255,255,255,0.72);
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .virtue-badge {
+      display: inline-block;
+      background: rgba(255,107,26,0.12);
+      border: 1px solid rgba(255,107,26,0.3);
+      color: var(--saffron);
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      margin: 0.2rem;
+    }
+
+    /* Timeline wrapper for multiple idols */
+    .leader-timeline {
+      position: relative;
+    }
+
+    .leader-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, transparent, var(--saffron) 8%, var(--gold) 50%, var(--saffron) 92%, transparent);
+      transform: translateX(-50%);
+      opacity: 0.35;
+    }
+
+    .leader-entry {
+      position: relative;
+      padding: 3.5rem 0;
+      border-bottom: 1px solid rgba(255,107,26,0.12);
+    }
+
+    .leader-entry:last-child { border-bottom: none; padding-bottom: 0; }
+    .leader-entry:first-child { padding-top: 0.5rem; }
+
+    .leader-era {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      background: var(--gold);
+      padding: 0.35rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+
+    .leader-entry:nth-child(even) .row { flex-direction: row-reverse; }
+
+    @media (max-width: 767px) {
+      .leader-timeline::before { left: 30px; }
+      .leader-entry:nth-child(even) .row { flex-direction: row; }
+    }
+
+    /* ─── MANIFESTO ─── */
+    #manifesto { padding: 5rem 0; background: var(--warm-white); }
+
+    .manifesto-tab {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.5rem;
+      border-radius: 0;
+      border: 1px solid rgba(255,107,26,0.3);
+      color: var(--saffron);
+      background: transparent;
+      transition: all 0.3s;
+    }
+
+    .manifesto-tab.active, .manifesto-tab:hover {
+      background: var(--saffron);
+      color: white;
+      border-color: var(--saffron);
+    }
+
+    .manifesto-card {
+      background: white;
+      border: 1px solid rgba(255,107,26,0.12);
+      border-radius: 4px;
+      padding: 2rem;
+      height: 100%;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+    }
+
+    .manifesto-card:hover {
+      box-shadow: 0 8px 30px rgba(255,107,26,0.1);
+      transform: translateY(-3px);
+    }
+
+    .manifesto-card h5 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.07em;
+      color: var(--saffron);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255,107,26,0.15);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .manifesto-card h5 i { font-size: 1.1rem; color: var(--gold); }
+
+    .manifesto-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .manifesto-card ul li {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.75;
+      padding: 0.6rem 0 0.6rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .manifesto-card ul li:last-child { border-bottom: none; }
+
+    .manifesto-card ul li::before {
+      content: '❧';
+      position: absolute;
+      left: 0;
+      color: var(--saffron);
+      font-size: 0.9rem;
+    }
+
+    /* ─── PLEDGE / JOIN ─── */
+    .pledge-section {
+      background: linear-gradient(135deg, var(--saffron-dark) 0%, var(--saffron) 50%, var(--saffron-light) 100%);
+      padding: 4.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pledge-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 40px);
+    }
+
+    .pledge-section h2 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: white;
+      margin-bottom: 0.8rem;
+    }
+
+    .pledge-section p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.88);
+      max-width: 550px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--deep-green);
+      padding: 5rem 0;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .contact-card:hover {
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-4px);
+    }
+
+    .contact-card i {
+      font-size: 2rem;
+      color: var(--saffron);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .contact-card h5 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p, .contact-card a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    .contact-form .form-control, .contact-form .form-select {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,107,26,0.2);
+      color: white;
+      border-radius: 2px;
+      padding: 0.75rem 1rem;
+      font-family: 'EB Garamond', serif;
+    }
+
+    .contact-form .form-control:focus {
+      background: rgba(255,255,255,0.09);
+      border-color: var(--saffron);
+      box-shadow: 0 0 0 3px rgba(255,107,26,0.15);
+      color: white;
+    }
+
+    .contact-form .form-control::placeholder { color: rgba(255,255,255,0.35); }
+
+    .contact-form label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.4rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0a0a0a;
+      border-top: 3px solid var(--saffron);
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-brand {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.95rem;
+    }
+
+    .footer-link {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      display: block;
+      padding: 0.3rem 0;
+      transition: color 0.3s;
+    }
+
+    .footer-link:hover { color: var(--saffron); }
+
+    .footer-col-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,107,26,0.2);
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.95rem;
+      margin-right: 0.5rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--saffron);
+      color: var(--saffron);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.82rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── BACK TO TOP ─── */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px;
+      background: var(--saffron);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(255,107,26,0.4);
+      transition: all 0.3s;
+    }
+
+    #backToTop:hover {
+      background: var(--saffron-dark);
+      transform: translateY(-3px);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .ideology-grid {
+        grid-template-columns: 1fr;
+      }
+      .ideology-divider { display: none; }
+      .ideology-text { padding: 0; margin-bottom: 2rem; }
+      .ideology-points { padding: 0; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,107,26,0.2); }
+    }
+
+    /* ─── ANIMATE ON SCROLL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back to Top -->
+  <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="bi bi-chevron-up"></i>
+  </button>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span>BJSP</span> · Bhartiya Jan Seva Party
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#intro">Introduction</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ideology">Ideology</a></li>
+          <li class="nav-item"><a class="nav-link" href="#leader">The Idols of Party</a></li>
+          <li class="nav-item"><a class="nav-link" href="#manifesto">Manifesto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-2">
+            <a class="btn-saffron" href="#contact" style="padding:0.45rem 1.2rem; font-size:0.72rem; letter-spacing:0.1em;">Join Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Ticker -->
+  <div class="ticker-wrap">
+    <div class="ticker-text">
+      ✦ Bhartiya Jan Seva Party — Dharma • Vidya • Seva &nbsp;&nbsp;&nbsp; ✦ धर्मो रक्षति रक्षितः — Dharma protects those who protect it &nbsp;&nbsp;&nbsp; ✦ वसुधैव कुटुम्बकम् — The World is One Family &nbsp;&nbsp;&nbsp; ✦ An enlightened citizenry is the foundation of a Dharmic civilization &nbsp;&nbsp;&nbsp; ✦ सत्यमेव जयते — Truth alone prevails &nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-content container">
+      <div class="hero-emblem">
+        <i class="bi bi-flower1"></i>
+      </div>
+      <div class="hero-sub">धर्म · विद्या · सेवा</div>
+      <h1>Bhartiya Jan Seva Party</h1>
+      <div class="hero-shloka mt-4">
+        धर्म एव हतो हन्ति धर्मो रक्षति रक्षितः ।<br>
+        तस्माद्धर्मो न हन्तव्यो मा नो धर्मो हतोऽवधीत् ॥
+      </div>
+      <div class="hero-shloka-trans">
+        Dharma, if destroyed, destroys us; Dharma, if protected, protects us.<br>
+        Therefore, let Dharma never be harmed, lest it harm us in turn. — Manusmriti
+      </div>
+      <div class="hero-cta">
+        <a href="#intro" class="btn-saffron">Our Vision</a>
+        <a href="#manifesto" class="btn-outline-gold">Read Manifesto</a>
+      </div>
+    </div>
+    <div class="scroll-down">
+      <i class="bi bi-chevron-double-down"></i>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="row g-0 text-center">
+        <div class="col-6 col-md-3 stat-item">
+          <span class="stat-num">2026</span>
+          <span class="stat-label">Founded</span>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <span class="stat-num">28</span>
+          <span class="stat-label">States Active</span>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <span class="stat-num">7</span>
+          <span class="stat-label">Core Pillars</span>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <span class="stat-num">1</span>
+          <span class="stat-label">Unified Vision</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Introduction -->
+  <section id="intro" class="py-5">
+    <div class="container" style="padding: 3rem 0;">
+      <div class="section-header reveal">
+        <span class="section-tag">Who We Are</span>
+        <h2 class="section-title">Introduction</h2>
+        <div class="section-divider">
+          <span></span><i class="bi bi-flower2"></i><span></span>
+        </div>
+      </div>
+      <div class="intro-card reveal">
+        <p>
+          The Bhartiya Jan Seva Party is founded upon the ideals of the <strong>Aryavartha Thesis</strong> — a vision of enlightened governance, cultural integrity, 
+          and universal harmony rooted in the timeless principles of Dharma. The party believes that true leadership arises not from the pursuit of power, 
+          but from wisdom, discipline, humility, and selfless service to the nation. It seeks to build a society where governance is guided by ethics, justice, 
+          and compassion, and where progress is balanced with moral responsibility and spiritual consciousness.
+        </p>
+        <br>
+        <p>
+          Bhartiya Jan Seva Party stands for the preservation and renaissance of Bharat's cultural heritage while embracing scientific advancement and modern innovation 
+          for the welfare of all humanity. The party envisions an India where education awakens conscience, citizens uphold dignity and duty, and development exists in harmony 
+          with nature and human values. Its mission is to create a Dharmic civilization founded upon truth, service, equality, cultural pride, and universal peace — making Bharat 
+          not merely a nation of prosperity, but a guiding light of consciousness and harmony for the world.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Pillars -->
+  <section class="pillars-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" style="color:var(--gold);">Foundation</span>
+        <h2 class="section-title light">The Three Pillars</h2>
+        <div class="section-divider">
+          <span style="background:var(--saffron)"></span>
+          <i class="bi bi-flower2" style="color:var(--gold)"></i>
+          <span style="background:var(--saffron)"></span>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <div class="pillar-card">
+            <div class="pillar-icon"><i class="bi bi-mortarboard-fill"></i></div>
+            <h4>Vidya — Knowledge</h4>
+            <p>True governance must arise from knowledge. A civilization that invests in the awakening of minds over the accumulation of wealth shall stand eternal. Education is the lamp that banishes ignorance from the hearts of a nation.</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="pillar-card">
+            <div class="pillar-icon"><i class="bi bi-shield-fill-check"></i></div>
+            <h4>Dharma — Righteousness</h4>
+            <p>Dharma is the eternal law of harmony — the code of right conduct that binds society together. When rulers uphold Dharma and citizens live by it, justice flows naturally like a river from its source.</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="pillar-card">
+            <div class="pillar-icon"><i class="bi bi-heart-fill"></i></div>
+            <h4>Seva — Service</h4>
+            <p>Selfless service is the highest form of Dharma. A party rooted in Seva sees governance not as power but as responsibility — every citizen a stakeholder, every institution a guardian of the public trust.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideology -->
+  <section id="ideology" class="py-5">
+    <div class="container" style="padding: 3rem 0;">
+      <div class="section-header reveal">
+        <span class="section-tag">Our Doctrine</span>
+        <h2 class="section-title">The Aryavartha Thesis</h2>
+        <div class="section-divider">
+          <span></span><i class="bi bi-flower2"></i><span></span>
+        </div>
+        <p class="mt-3" style="font-style:italic; color:#666; max-width:600px; margin: 0.8rem auto 0; font-size:1.05rem;">
+          A Doctrine of Enlightened Governance, Cultural Integrity, and Universal Harmony
+        </p>
+      </div>
+
+      <div class="ideology-grid reveal">
+        <div class="ideology-text">
+          <p>The Aryavartha Thesis envisions a civilization where wisdom governs power, ethics guide progress, and humanity lives in harmony with both nature and the cosmos. Rooted in the timeless principles of Dharma, it seeks not merely to return to the past but to bring ancient clarity into the complexity of the modern age.</p>
+          <br>
+          <p>Governance, in this vision, is not the exercise of control but the expression of responsibility. True leadership must arise from knowledge (<em>Vidya</em>), restraint (<em>Sanyam</em>), and service (<em>Seva</em>). When power bows before wisdom and authority is tempered by humility, governance becomes an act of enlightened duty rather than domination.</p>
+          <br>
+          <p>Culture forms the soul of civilization — a living bridge between memory and imagination. To preserve culture is not to freeze it in time, but to refine and reinterpret it with every generation. The Aryavartha Thesis calls for a renaissance of art, language, attire, architecture, and civic manners that combine grace, simplicity, and dignity.</p>
+          <br>
+          <p>This philosophy affirms the ancient truth: <em>Vasudhaiva Kutumbakam</em> — humanity is one family. Science and spirituality are complementary paths to understanding reality. A harmonious civilization must integrate the insights of the Shastras with the discoveries of modern science, using both to serve all life.</p>
+        </div>
+
+        <div class="ideology-divider"></div>
+
+        <div class="ideology-points">
+          <div class="ideology-point">
+            <span class="ideology-point-num">I</span>
+            <div class="ideology-point-text">
+              <h5>Ethical Governance</h5>
+              <p>Authority must be exercised as a sacred trust — tempered by humility, guided by wisdom, and accountable to the people it serves.</p>
+            </div>
+          </div>
+          <div class="ideology-point">
+            <span class="ideology-point-num">II</span>
+            <div class="ideology-point-text">
+              <h5>Cultural Renaissance</h5>
+              <p>Art, language, and civic culture must be preserved and reinterpreted — conscious civilization is eternal civilization.</p>
+            </div>
+          </div>
+          <div class="ideology-point">
+            <span class="ideology-point-num">III</span>
+            <div class="ideology-point-text">
+              <h5>Universal Brotherhood</h5>
+              <p><em>Vasudhaiva Kutumbakam</em> — the world is one family. Foreign policy must reflect compassion and cooperation without compromising sovereignty.</p>
+            </div>
+          </div>
+          <div class="ideology-point">
+            <span class="ideology-point-num">IV</span>
+            <div class="ideology-point-text">
+              <h5>Conscious Education</h5>
+              <p>Education must awaken conscience, not merely transfer skill. True learning ignites responsibility toward self, society, and nature.</p>
+            </div>
+          </div>
+          <div class="ideology-point">
+            <span class="ideology-point-num">V</span>
+            <div class="ideology-point-text">
+              <h5>Human Dignity</h5>
+              <p>Every person is a temple of the Divine — deserving respect, fairness, and opportunity. Dignity is the breath of Dharma.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Idols of the Party -->
+  <section id="leader" class="py-5">
+    <div class="container" style="padding: 3rem 0;">
+      <div class="section-header reveal">
+        <span class="section-tag" style="color:var(--gold);">Spiritual Lineage</span>
+        <h2 class="section-title light">The Idols of the Party</h2>
+        <div class="section-divider">
+          <span style="background:var(--saffron)"></span>
+          <i class="bi bi-flower2" style="color:var(--gold)"></i>
+          <span style="background:var(--saffron)"></span>
+        </div>
+        <p class="mt-3" style="font-style:italic; color:rgba(255,255,255,0.55); max-width:650px; margin: 0.8rem auto 0; font-size:1.02rem;">
+          A living lineage of Acharyas whose wisdom and courage continue to guide the party's Dharmic vision, presented in chronological order.
+        </p>
+      </div>
+
+
+
+        <!-- 1. Adi Shankaracharya -->
+        <div class="leader-entry reveal">
+          <div class="row align-items-center g-5">
+            <div class="col-md-4 text-center">
+              <span class="leader-era">c. 788 – 820 CE</span><br>
+              <div class="leader-frame">
+                <img src="Adi Shankaracharya Ji.jpg" alt="Adi Shankaracharya" onerror="this.src='https://via.placeholder.com/280x360/1c1c1c/D4A017?text=Adi+Shankaracharya'">
+              </div>
+              <div class="mt-4">
+                <span class="virtue-badge">Advaita</span>
+                <span class="virtue-badge">Vidya</span>
+                <span class="virtue-badge">Dharma</span>
+              </div>
+            </div>
+            <div class="col-md-8 leader-info">
+              <h3>Jagadguru Adi Shankaracharya</h3>
+              <p class="leader-title">Founder of Advaita Vedanta &amp; the Four Peethas</p>
+              <p>
+                Born in Kaladi, Kerala, Adi Shankaracharya is revered as the fountainhead of the Aryavartha vision itself — the sage who, in his brief life, unified the diverse philosophical currents of Bharat under the banner of Advaita Vedanta. Travelling the length of the subcontinent on foot, he debated scholars of every school and revived the study of the Vedas at a time when they had grown fragmented.
+              </p>
+              <br>
+              <p>
+                To safeguard this unity for all future generations, he established the four cardinal Peethas — Sringeri in the south, Dwarka in the west, Puri in the east, and Jyotir Math in the north — each entrusted to a disciple to preserve and transmit Vedic wisdom. His life remains the original template for the party's belief that knowledge, humility, and tireless service are the true instruments of civilizational renewal.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Dharm Samrat Karpatri Swami -->
+        <div class="leader-entry reveal">
+          <div class="row align-items-center g-5">
+            <div class="col-md-4 text-center">
+              <span class="leader-era">1907 – 1982</span><br>
+              <div class="leader-frame">
+                <img src="Dharmsamrat Karpatri Ji.jpg" alt="Dharm Samrat Karpatri Swami" onerror="this.src='https://via.placeholder.com/280x360/1c1c1c/D4A017?text=Karpatri+Swami'">
+              </div>
+              <div class="mt-4">
+                <span class="virtue-badge">Dharma</span>
+                <span class="virtue-badge">Tapasya</span>
+                <span class="virtue-badge">Shastra</span>
+              </div>
+            </div>
+            <div class="col-md-8 leader-info">
+              <h3>Dharm Samrat Swami Karpatri</h3>
+              <p class="leader-title">(Swami Hariharananda Saraswati)</p>
+              <p>
+                Born Har Narayan Ojha in Pratapgarh, Uttar Pradesh, he left worldly life at a young age and, after years of solitary discipline in the Himalayan caves, was initiated as a Dandi Sannyasi by Shankaracharya Brahmananda Saraswati of Jyotir Math. He came to be known as "Karpatri" for taking alms only in his cupped hands, and was honoured by the masses with the title Dharma Samrat — Emperor of Dharma.
+              </p>
+              <br>
+              <p>
+                In 1948 he founded the Akhil Bharatiya Ram Rajya Parishad, one of independent India's earliest Dharma-based political movements, and led the campaigns for cow protection and against the Hindu Code Bill. A prolific scholar of the Vedas and Shastras, his life exemplifies the party's conviction that fearless righteousness and deep learning must walk together.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Swami Swaroopanand Saraswati -->
+        <div class="leader-entry reveal">
+          <div class="row align-items-center g-5">
+            <div class="col-md-4 text-center">
+              <span class="leader-era">1924 – 2022</span><br>
+              <div class="leader-frame">
+                <img src="Shankaracharya Swaroopanand Saraswati Ji.jpg" alt="Swami Swaroopanand Saraswati" onerror="this.src='https://via.placeholder.com/280x360/1c1c1c/D4A017?text=Swaroopanand+Saraswati'">
+              </div>
+              <div class="mt-4">
+                <span class="virtue-badge">Seva</span>
+                <span class="virtue-badge">Dharma</span>
+                <span class="virtue-badge">Sahas</span>
+              </div>
+            </div>
+            <div class="col-md-8 leader-info">
+              <h3>Jagadguru Shankaracharya<br>Swami Swaroopanand Saraswati</h3>
+              <p class="leader-title">Shankaracharya of Dwarka-Sharda &amp; Jyotir Math</p>
+              <p>
+                Born Pothiram Upadhyay in the village of Dighori, Madhya Pradesh, he left home at the age of nine in pursuit of spiritual learning and studied under Swami Karpatri in Kashi. At eighteen, he joined the 1942 Quit India movement and became known as the "Revolutionary Sadhu" for his role in the freedom struggle.
+              </p>
+              <br>
+              <p>
+                A direct disciple of Brahmananda Saraswati, he was made Shankaracharya of Jyotir Math in 1973 and of Dwarka-Sharda Peeth in 1982, later serving as president of the Ram Rajya Parishad founded by his own Guru. Across nearly a century of public life he remained a tireless voice for Ram Janmabhoomi, the protection of the Ganga, and the cow protection movement, embodying a lifetime of Seva in service of Dharma.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Nigrahacharya Ji -->
+        <div class="leader-entry reveal">
+          <div class="row align-items-center g-5">
+            <div class="col-md-4 text-center">
+              <span class="leader-era">Present Day</span><br>
+              <div class="leader-frame">
+                <img src="NigrahacharyaJi.jpeg" alt="Nigrahacharya Ji" onerror="this.src='https://via.placeholder.com/280x360/1c1c1c/FF6B1A?text=Nigrahacharya+Ji'">
+              </div>
+              <div class="mt-4">
+                <span class="virtue-badge">Vidya</span>
+                <span class="virtue-badge">Dharma</span>
+                <span class="virtue-badge">Sanyam</span>
+              </div>
+            </div>
+            <div class="col-md-8 leader-info">
+              <h3>Shri Mahamahim Jagadguru Vidyamaartand<br>Nigrahacharya</h3>
+              <p class="leader-title">(Shree Bhagvatanand Guru)</p>
+              <p>
+                The title <em>Nigrahacharya</em> is bestowed upon a scholar, teacher, or spiritual guide who specializes in <em>nigraha</em> — the discipline of control, correction, and protection of moral and social order. In traditional Indian philosophical and religious thought, a Nigrahacharya is regarded as a wise authority who guides people toward righteousness, self-discipline, truth, and ethical conduct.
+              </p>
+              <br>
+              <p>
+                Such a person is revered for deep knowledge of scriptures, strong leadership, and the ability to defend principles against injustice or corruption. The role of a Nigrahacharya is not only to teach spiritual wisdom but also to inspire society to follow duty, culture, and Dharma with courage and integrity — embodying the living ideal of the Aryavartha Thesis.
+              </p>
+              <br>
+              <p>
+                As the spiritual and philosophical idol of the Bhartiya Jan Seva Party in the present age, Nigrahacharya Ji represents the highest aspiration of the party: that governance should be inspired by the same wisdom, compassion, and fearless righteousness that has characterized this lineage of Dharmic sages from Adi Shankaracharya onward.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Manifesto -->
+  <section id="manifesto" class="py-5">
+    <div class="container" style="padding: 3rem 0;">
+      <div class="section-header reveal">
+        <span class="section-tag">Our Commitment</span>
+        <h2 class="section-title">Party Manifesto</h2>
+        <div class="section-divider">
+          <span></span><i class="bi bi-flower2"></i><span></span>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="manifesto-card">
+            <h5><i class="bi bi-people-fill"></i> Society & Culture</h5>
+            <ul>
+              <li>Promote national unity and cultural cohesion across all regions and communities of India.</li>
+              <li>Eliminate caste-based discrimination through economically targeted affirmative action.</li>
+              <li>Adopt zero-tolerance policy toward violent and organized crime with full victim support services.</li>
+              <li>Promote cultural harmony and balance within India's heritage, emphasizing ethical governance and social equity.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="manifesto-card">
+            <h5><i class="bi bi-flag-fill"></i> Defence & Security</h5>
+            <ul>
+              <li>Strengthen and indigenize Armed Forces to ensure robust defensive capabilities and strategic deterrence.</li>
+              <li>Bolster conventional defence infrastructure and invest in advanced civilian technologies for peaceful energy and space exploration.</li>
+              <li>Foster comprehensive relations with neighboring countries characterized by mutual respect and non-aggression.</li>
+              <li>Support non-proliferation initiatives and international peace frameworks.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="manifesto-card">
+            <h5><i class="bi bi-book-fill"></i> Education & Research</h5>
+            <ul>
+              <li>Revitalize educational excellence through strategic reforms in schools, universities, and vocational training institutions.</li>
+              <li>Enable India to re-emerge as a global hub for learning, innovation, and knowledge production.</li>
+              <li>Integrate Shastraic wisdom with modern scientific inquiry in research institutions.</li>
+              <li>Prioritize moral education alongside technical skill-building across all levels of schooling.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="manifesto-card">
+            <h5><i class="bi bi-gear-fill"></i> Economy & Industry</h5>
+            <ul>
+              <li>Provide incentives for 'Make in India' within automobile and automotive component sectors.</li>
+              <li>Adopt strategic import substitution in sectors where export-led growth is feasible.</li>
+              <li>Ensure full and decent employment through MSME support and entrepreneurship incentives.</li>
+              <li>Diversify trade partnerships and facilitate trade through transparent policy frameworks.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="manifesto-card">
+            <h5><i class="bi bi-tree-fill"></i> Environment & Nature</h5>
+            <ul>
+              <li>Development must exist in harmony with nature — no prosperity at the cost of ecological destruction.</li>
+              <li>Promote renewable energy and sustainable agriculture rooted in traditional Indian land stewardship.</li>
+              <li>Protect India's rivers, forests, and biodiversity as sacred national assets.</li>
+              <li>Integrate environmental responsibility into all public policy and urban planning.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="manifesto-card">
+            <h5><i class="bi bi-building-fill"></i> Governance & Law</h5>
+            <ul>
+              <li>Implement e-governance initiatives and ensure independent oversight of law enforcement institutions.</li>
+              <li>Undertake comprehensive police reforms prioritizing accountability, training, and community trust.</li>
+              <li>Any proposal regarding a change in the country's name proceeds only after thorough democratic and constitutional consultation.</li>
+              <li>Strengthen anti-corruption frameworks with transparent, citizen-accessible enforcement mechanisms.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pledge / Join CTA -->
+  <section class="pledge-section text-center">
+    <div class="container position-relative" style="z-index:1">
+      <h2>Join the Movement for Dharmic Civilization</h2>
+      <p>Every conscious citizen who believes in truth, service, and the dignity of all life is welcome. This is not merely a party — it is a mission.</p>
+      <a href="#contact" class="btn-outline-gold" style="background:rgba(255,255,255,0.1); color:white; border-color:white;">
+        Become a Member
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container" style="padding: 3rem 0;">
+      <div class="section-header reveal">
+        <span class="section-tag" style="color:var(--gold);">Reach Us</span>
+        <h2 class="section-title light">Contact & Connect</h2>
+        <div class="section-divider">
+          <span style="background:var(--saffron)"></span>
+          <i class="bi bi-flower2" style="color:var(--gold)"></i>
+          <span style="background:var(--saffron)"></span>
+        </div>
+      </div>
+
+    <div class="row g-4 mb-5">
+
+    <div class="col-md-4 reveal">
+        <div class="contact-card">
+            <i class="bi bi-geo-alt-fill"></i>
+            <h5>Headquarters</h5>
+            <p>Uttarakhand, India (Not Offically Declared)</p>
+        </div>
+    </div>
+
+    <div class="col-md-4 reveal">
+        <div class="contact-card">
+            <i class="bi bi-envelope-fill"></i>
+            <h5>Email</h5>
+            <a href="mailto:contactvanshsinghrawat97@gmail.com">
+                Contact vanshsinghrawat97@gmail.com
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-4 reveal">
+        <div class="contact-card">
+            <i class="bi bi-whatsapp"></i>
+            <h5>WhatsApp Broadcast</h5>
+            <p><a href="https://chat.whatsapp.com/HoaA9wWojtq4QE06rmDmj4" target="chat.whatsapp.com">Join our WhatsApp Broadcast</p>
+
+            </a>
+        </div>
+    </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-7 reveal">
+          <div class="contact-form">
+            <h4 style="font-family:'Cinzel',serif; color:var(--gold); margin-bottom:1.5rem; font-size:1rem; letter-spacing:0.1em; text-align:center;">SEND A MESSAGE / JOIN THE PARTY</h4>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label>Full Name</label>
+                <input type="text" class="form-control" placeholder="Your full name">
+              </div>
+              <div class="col-md-6">
+                <label>Email Address</label>
+                <input type="email" class="form-control" placeholder="your@email.com">
+              </div>
+              <div class="col-md-6">
+                <label>Phone Number</label>
+                <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX">
+              </div>
+              <div class="col-md-6">
+                <label>State / Region</label>
+                <input type="text" class="form-control" placeholder="Your state">
+              </div>
+              <div class="col-12">
+                <label>Message / Reason for Joining</label>
+                <textarea class="form-control" rows="4" placeholder="Tell us about yourself and your interest in joining the Bhartiya Jan Seva Party..."></textarea>
+              </div>
+              <div class="col-12 text-center mt-2">
+                <button class="btn-saffron" style="font-size:0.78rem; padding:0.85rem 2.5rem;">
+                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScyMth7uSLMnN6xymMWiP8OAnR_HpomKwDmcEdM6qjigvlGEQ/viewform?usp=dialog"  style="text-decoration: none; color: inherit;">Submit & Join the Mission</a> 
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="footer-brand">Bhartiya Jan Seva Party</div>
+          <p class="footer-tagline mt-1">धर्म · विद्या · सेवा</p>
+          <p style="color:rgba(255,255,255,0.35); font-size:0.9rem; margin-top:1rem; line-height:1.7;">
+            Rooted in the eternal principles of Dharma, guided by wisdom, committed to the service of all humanity.
+          </p>
+          <div class="mt-2">
+            <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-btn"><i class="bi bi-envelope"></i></a>
+            <a href="#" class="social-btn"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-btn"><i class="bi bi-discord"></i></a>
+            
+          </div>
+        </div>
+        <div class="col-md-2 offset-md-1">
+          <div class="footer-col-title">Navigate</div>
+          <a href="#intro" class="footer-link">Introduction</a>
+          <a href="#ideology" class="footer-link">Ideology</a>
+          <a href="#leader" class="footer-link">The Idols of Party</a>
+          <a href="#manifesto" class="footer-link">Manifesto</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </div>
+        <div class="col-md-2">
+          <div class="footer-col-title">Manifesto</div>
+          <a href="#manifesto" class="footer-link">Society</a>
+          <a href="#manifesto" class="footer-link">Defence</a>
+          <a href="#manifesto" class="footer-link">Education</a>
+          <a href="#manifesto" class="footer-link">Economy</a>
+          <a href="#manifesto" class="footer-link">Environment</a>
+        </div>
+        <div class="col-md-2">
+          <div class="footer-col-title">Doctrine</div>
+          <a href="#ideology" class="footer-link">Aryavartha Thesis</a>
+          <a href="#ideology" class="footer-link">Ethical Governance</a>
+          <a href="#ideology" class="footer-link">Cultural Renaissance</a>
+          <a href="#ideology" class="footer-link">Vasudhaiva Kutumbakam</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Bhartiya Jan Seva Party &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp; Dharmo Rakshati Rakshitah
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Back to top button
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    });
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.4)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+    });
+
+    // Smooth active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === `#${current}`
+          ? 'var(--gold)' : '';
+      });
+    });
+
+    // Animated counters in stats bar
+    function animateCounter(el, target) {
+      let count = 0;
+      const step = Math.ceil(target / 40);
+      const interval = setInterval(() => {
+        count = Math.min(count + step, target);
+        el.textContent = count;
+        if (count >= target) clearInterval(interval);
+      }, 40);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.stat-num').forEach(num => {
+            const val = parseInt(num.textContent);
+            if (!isNaN(val)) animateCounter(num, val);
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsBar = document.querySelector('.stats-bar');
+    if (statsBar) statsObserver.observe(statsBar);
+  </script>
+</body>
+</html>
