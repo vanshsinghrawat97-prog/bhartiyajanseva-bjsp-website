@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Bhartiya Jan Seva Party</title>
-<link rel="icon" href="Screenshot 2026-05-21 164432.png">
+<link rel="icon" href="920493611333765752.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-/* ─── Minimal layout utilities (replaces Bootstrap, which can't load here) ─── */
 a{text-decoration:none}
 .container{width:100%;padding:0 12px;margin:0 auto}
 @media(min-width:768px){.container{max-width:720px}}
@@ -36,7 +35,6 @@ a{text-decoration:none}
 @media(min-width:992px){.navbar-toggler{display:none}.navbar-collapse{display:flex!important;flex-basis:auto}.navbar-nav{flex-direction:row}}
 .form-control{display:block;width:100%;font-size:1rem;line-height:1.5}
 .contact-form label{display:inline-block}
-/* Icons (unicode stand-ins for Bootstrap Icons) */
 .bi{display:inline-block;font-style:normal;line-height:1}
 .bi-flower1::before{content:"❀"}.bi-flower2::before{content:"✿"}
 .bi-chevron-up::before{content:"⌃"}.bi-chevron-double-down::before{content:"⇓"}
@@ -152,6 +150,22 @@ body{font-family:'EB Garamond',Georgia,serif;background:var(--page);color:var(--
 .manifesto-card ul li:last-child{border-bottom:none}
 .manifesto-card ul li::before{content:'❧';position:absolute;left:0;color:var(--saffron);font-size:.9rem}
 
+/* ─── Roadmap & Employment ─── */
+#roadmap{padding:5rem 0;background:var(--alt)}
+.goal-card{background:var(--card);border:1px solid rgba(255,107,26,.12);border-left:4px solid var(--saffron);border-radius:4px;padding:1.8rem;height:100%;box-shadow:0 2px 20px rgba(0,0,0,.05);transition:all .3s}
+.goal-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,107,26,.12)}
+.goal-year{font-family:'Cinzel Decorative',serif;font-size:1.5rem;color:var(--saffron);display:block;line-height:1;margin-bottom:.6rem}
+.goal-card h5{font-family:'Cinzel',serif;font-size:.9rem;letter-spacing:.06em;color:var(--ink);margin-bottom:.6rem}
+.goal-card p{font-size:1rem;color:var(--ink3);line-height:1.75;margin:0}
+#employment{padding:5rem 0;background:var(--charcoal)}
+.emp-step{display:flex;gap:1.2rem;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,107,26,.2);border-top:3px solid var(--saffron);padding:1.8rem 1.5rem;height:100%;transition:all .4s ease}
+.emp-step:hover{background:rgba(255,107,26,.07);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.emp-num{font-family:'Cinzel Decorative',serif;font-size:1.8rem;color:var(--gold);line-height:1;min-width:2.2rem}
+.emp-step h4{font-family:'Cinzel',serif;font-size:.95rem;letter-spacing:.05em;color:var(--saffron);margin-bottom:.6rem}
+.emp-step p{font-size:1rem;color:rgba(255,255,255,.68);line-height:1.8;margin:0}
+.emp-sub{font-family:'Cinzel',serif;font-size:1.15rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:1.8rem;padding-bottom:.8rem;border-bottom:1px solid rgba(255,107,26,.25)}
+.emp-note{max-width:700px;margin:2.5rem auto 0;text-align:center;font-style:italic;color:rgba(255,255,255,.55);font-size:1.05rem;line-height:1.8}
+
 .pledge-section{background:linear-gradient(135deg,var(--saffron-dark) 0%,var(--saffron) 50%,var(--saffron-light) 100%);padding:4.5rem 0;position:relative;overflow:hidden}
 .pledge-section::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0,rgba(255,255,255,.03) 1px,transparent 1px,transparent 40px)}
 .pledge-section h2{font-family:'Cinzel Decorative',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;margin-bottom:.8rem}
@@ -166,6 +180,10 @@ body{font-family:'EB Garamond',Georgia,serif;background:var(--page);color:var(--
 .contact-form .form-control{background:rgba(255,255,255,.06);border:1px solid rgba(255,107,26,.2);color:#fff;border-radius:2px;padding:.75rem 1rem;font-family:'EB Garamond',serif}
 .contact-form .form-control:focus{background:rgba(255,255,255,.09);border-color:var(--saffron);box-shadow:0 0 0 3px rgba(255,107,26,.15);color:#fff;outline:0}
 .contact-form .form-control::placeholder{color:rgba(255,255,255,.35)}
+.contact-form .form-control.invalid{border-color:#ff5a5a;box-shadow:0 0 0 3px rgba(255,90,90,.2)}
+.form-msg{display:none;margin-top:.9rem;font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.06em;color:#ff8f8f;text-align:center}
+.form-msg.show{display:block}
+.form-msg.ok{color:var(--gold-light)}
 .contact-form label{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.4rem}
 
 footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5rem}
@@ -184,6 +202,12 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
 
 @media(max-width:768px){.ideology-grid{grid-template-columns:1fr}.ideology-divider{display:none}.ideology-text{padding:0;margin-bottom:2rem}.ideology-points{padding:0}.stat-item{border-right:none;border-bottom:1px solid rgba(255,107,26,.2)}}
 
+#join{padding:5rem 0;background:var(--alt)}
+.join-frame{max-width:760px;margin:0 auto;background:#fff;border:1px solid rgba(255,107,26,.25);border-top:3px solid var(--saffron);border-radius:4px;box-shadow:0 4px 30px rgba(0,0,0,.12);overflow:hidden}
+.join-frame iframe{display:block;width:100%;height:1100px;border:0}
+@media(max-width:600px){.join-frame iframe{height:1300px}}
+.join-alt{text-align:center;margin-top:1.2rem;font-size:1rem;color:var(--ink3)}
+.join-alt a{color:var(--saffron);text-decoration:underline}
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
@@ -202,8 +226,10 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
         <li class="nav-item"><a class="nav-link" href="#ideology">Ideology</a></li>
         <li class="nav-item"><a class="nav-link" href="#leader">The Idols of Party</a></li>
         <li class="nav-item"><a class="nav-link" href="#manifesto">Manifesto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#roadmap">Journey</a></li>
+        <li class="nav-item"><a class="nav-link" href="#employment">Employment</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        <li class="nav-item ms-2"><a class="btn-saffron" href="#contact" style="padding:.45rem 1.2rem;font-size:.72rem;letter-spacing:.1em;">Join Us</a></li>
+        <li class="nav-item ms-2"><a class="btn-saffron" href="#join" style="padding:.45rem 1.2rem;font-size:.72rem;letter-spacing:.1em;">Join Us</a></li>
         <li class="nav-item ms-2"><button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme"></button></li>
       </ul>
     </div>
@@ -392,11 +418,7 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
           <div class="col-md-8 leader-info">
             <h3>Shri Mahamahim Jagadguru Vidyamaartand<br>Nigrahacharya</h3>
             <p class="leader-title">(Shree Bhagvatanand Guru)</p>
-            <p>The title <em>Nigrahacharya</em> is bestowed upon a scholar, teacher, or spiritual guide who specializes in <em>nigraha</em> — the discipline of control, correction, and protection of moral and social order. In traditional Indian philosophical and religious thought, a Nigrahacharya is regarded as a wise authority who guides people toward righteousness, self-discipline, truth, and ethical conduct.</p>
-            <br>
-            <p>Such a person is revered for deep knowledge of scriptures, strong leadership, and the ability to defend principles against injustice or corruption. The role of a Nigrahacharya is not only to teach spiritual wisdom but also to inspire society to follow duty, culture, and Dharma with courage and integrity — embodying the living ideal of the Aryavartha Thesis.</p>
-            <br>
-            <p>As the spiritual and philosophical idol of the Bhartiya Jan Seva Party in the present age, Nigrahacharya Ji represents the highest aspiration of the party: that governance should be inspired by the same wisdom, compassion, and fearless righteousness that has characterized this lineage of Dharmic sages from Adi Shankaracharya onward.</p>
+            <p>Nigrahacharya Shri Bhagavatananda Guru is a contemporary Hindu religious teacher associated with the Nigraha Sampradaya. He is described by his followers as a religious preacher, scholar, philanthropist, and speaker with knowledge of Sanatana Vedic scriptures. The title “Nigrahacharya” is linked to the idea of restraining or correcting unrighteous conduct, and his tradition provides disciples with guidance on initiation and conduct through texts such as <em>Shishya Patheya</em>.</p>
           </div>
         </div>
       </div>
@@ -471,11 +493,168 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
   </div>
 </section>
 
+<section id="roadmap" class="py-5">
+  <div class="container" style="padding:3rem 12px;">
+    <div class="section-header reveal">
+      <span class="section-tag">Our Aims</span>
+      <h2 class="section-title">Journey to Renaissance</h2>
+      <div class="section-divider"><span></span><i class="bi bi-flower2"></i><span></span></div>
+      <p class="mt-3" style="font-style:italic;color:var(--ink3);max-width:600px;margin:.8rem auto 0;font-size:1.05rem;">Nine steps on the path to a Dharmic civilization</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
+        <span class="goal-year">1</span><h5>People’s Mentality Development &amp; Massive Shift</h5>
+        <p>A nationwide awakening of thought, where citizens move from distraction and division towards duty, discipline, self-respect and conscious living.</p>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
+        <span class="goal-year">2</span><h5>Nature Restoration</h5>
+        <p>Revive rivers, forests, soil and biodiversity, and bring back the traditional land stewardship that kept Bharat in balance with nature.</p>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
+        <span class="goal-year">3</span><h5>Restoration of Scriptures, Culture &amp; Principles</h5>
+        <p>Protect, study and renew the Shastras, customs and principles of Dharma so that they live again in everyday family and public life.</p>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
+        <span class="goal-year">4</span><h5>Infrastructure Development</h5>
+        <p>Build roads, rail, water, power, housing and digital networks that reach every village and city, designed to last and to respect the land.</p>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
+        <span class="goal-year">5</span><h5>Technology Inspired by Harappa &amp; Ancient Civilizations</h5>
+        <p>Learn from the town planning, water management, metallurgy and craft science of the Harappan and other ancient civilizations, and bring that wisdom into modern invention.</p>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
+        <span class="goal-year">6</span><h5>Shows &amp; Serials on Faith and Social Problems</h5>
+        <p>Produce television and streaming stories that portray religious and societal problems, and the forces of division and deceit behind them, so that the public learns to recognise them.</p>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
+        <span class="goal-year">7</span><h5>Documentaries on the Reality of the World</h5>
+        <p>Make investigative documentaries on secretive organisations and hidden influence in religious fields, and on the links between politicians and religious preachers, based on verified facts and open evidence.</p>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
+        <span class="goal-year">8</span><h5>Upbringing of Great Religious Scholars</h5>
+        <p>Support gurukuls, scholarships and teacher lineages to raise a new generation of learned, fearless and humble scholars of Dharma.</p>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
+        <span class="goal-year">9</span><h5>Great Recitations of Shastriya Topics</h5>
+        <p>Hold large public recitations and discourses by scholars on the Shastras, in the languages of the people, to spread awareness in every region.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="employment" class="py-5">
+  <div class="container" style="padding:3rem 12px;">
+    <div class="section-header reveal">
+      <span class="section-tag" style="color:var(--gold);">Livelihood</span>
+      <h2 class="section-title light">Employment Model</h2>
+      <div class="section-divider"><span></span><i class="bi bi-flower2"></i><span></span></div>
+      <p class="mt-3" style="font-style:italic;color:rgba(255,255,255,.55);max-width:640px;margin:.8rem auto 0;font-size:1.02rem;">Work as Seva: the state leads where public trust is essential, and works with private enterprise where creativity and industry can flourish together.</p>
+    </div>
+    <h3 class="emp-sub reveal">Governmental Rule</h3>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">1</span>
+        <div><h4>Societies &amp; Apartments</h4>
+        <p>Government oversight of housing societies and apartment complexes for fair maintenance, safety and clean, green living, creating jobs in management, security, and civic services.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">2</span>
+        <div><h4>Social Media</h4>
+        <p>A national, accountable framework for social platforms that protects citizens from fraud, hate and misinformation, with openings for moderators, analysts and cyber-safety experts.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">3</span>
+        <div><h4>School Collaboration</h4>
+        <p>Close partnership between government, schools and local industry, bringing apprenticeships, vocational courses and mentors into the classroom.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">4</span>
+        <div><h4>Food Production</h4>
+        <p>State-supported farming, storage, processing and fair-price distribution, giving steady work to farmers, cooperatives, and food-processing units.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">5</span>
+        <div><h4>Arms &amp; Ammunition</h4>
+        <p>Indigenous, government-controlled manufacture of defence equipment, building high-skill employment in engineering, metallurgy and research.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">6</span>
+        <div><h4>Hospitals</h4>
+        <p>A strong network of public hospitals and health centres, with employment for doctors, nurses, technicians, and traditional healers alongside modern medicine.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">7</span>
+        <div><h4>Architectural Designers</h4>
+        <p>State-guided design of public buildings and towns that blend Indian architectural principles with modern engineering, opening careers for architects, planners and craftsmen.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">8</span>
+        <div><h4>Telecom</h4>
+        <p>Public ownership and oversight of telecom networks to give affordable, secure connectivity everywhere, with work for engineers, tower crews and service staff.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">9</span>
+        <div><h4>Educational Institutions</h4>
+        <p>Government-run and regulated schools, colleges and universities that combine moral education with technical skill, giving stable careers to teachers, researchers and administrators.</p></div>
+      </div></div>
+    </div>
+    <h3 class="emp-sub reveal" style="margin-top:3.5rem;">Government &amp; Private Collaboration</h3>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">1</span>
+        <div><h4>Gaming</h4>
+        <p>Government and private studios together build Indian-themed, value-based games, giving young developers, artists and storytellers a home industry.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">2</span>
+        <div><h4>Animation</h4>
+        <p>Shared studios and training centres create animation based on Indian history and Dharmic stories for children and global audiences.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">3</span>
+        <div><h4>Weapon Training (Indian Culture)</h4>
+        <p>Government-recognised academies preserve and teach traditional Indian martial arts and Shastra Vidya, training instructors and champions in discipline and self-defence.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">4</span>
+        <div><h4>Laptop Making</h4>
+        <p>Joint manufacturing units make laptops in India, creating jobs in design, assembly, testing and supply chains.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">5</span>
+        <div><h4>Phone Making</h4>
+        <p>Government incentives and private enterprise work together to produce phones and components in India, building a full domestic electronics ecosystem.</p></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="emp-step">
+        <span class="emp-num">6</span>
+        <div><h4>Cinema</h4>
+        <p>Partnerships that fund and promote meaningful Indian cinema, supporting writers, directors, actors, and technicians while upholding cultural dignity.</p></div>
+      </div></div>
+    </div>
+    <p class="emp-note reveal">Every hand employed, every skill honoured, since work done with dignity is itself a form of service.</p>
+  </div>
+</section>
+
 <section class="pledge-section text-center">
   <div class="container position-relative" style="z-index:1">
-    <h2>Join the Movement for Dharmic Civilization</h2>
+    <h2>Join the Party for Dharm Sankalp</h2>
     <p>Every conscious citizen who believes in truth, service, and the dignity of all life is welcome. This is not merely a party — it is a mission.</p>
-    <a href="#contact" class="btn-outline-gold" style="background:rgba(255,255,255,.1);color:#fff;border-color:#fff;">Become a Member</a>
+    <a href="#join" class="btn-outline-gold" style="background:rgba(255,255,255,.1);color:#fff;border-color:#fff;">Become a Member</a>
+  </div>
+</section>
+
+<section id="join" class="py-5">
+  <div class="container" style="padding:3rem 12px;">
+    <div class="section-header reveal">
+      <span class="section-tag">Membership</span>
+      <h2 class="section-title">Join the Party</h2>
+      <div class="section-divider"><span></span><i class="bi bi-flower2"></i><span></span></div>
+      <p class="mt-3" style="font-style:italic;color:var(--ink3);max-width:600px;margin:.8rem auto 0;font-size:1.05rem;">Fill in the official membership form below to become a member.</p>
+    </div>
+    <div class="join-frame reveal">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyMth7uSLMnN6xymMWiP8OAnR_HpomKwDmcEdM6qjigvlGEQ/viewform?embedded=true" title="Bhartiya Jan Seva Party membership form" loading="lazy" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+    <p class="join-alt reveal">Form not showing? <a href="https://docs.google.com/forms/d/e/1FAIpQLScyMth7uSLMnN6xymMWiP8OAnR_HpomKwDmcEdM6qjigvlGEQ/viewform?usp=dialog" target="_blank" rel="noopener">Open it in a new tab</a></p>
   </div>
 </section>
 
@@ -502,23 +681,6 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
       </div></div>
     </div>
 
-    <div class="row justify-content-center">
-      <div class="col-lg-7 reveal">
-        <div class="contact-form">
-          <h4 style="font-family:'Cinzel',serif;color:var(--gold);margin-bottom:1.5rem;font-size:1rem;letter-spacing:.1em;text-align:center;">SEND A MESSAGE / JOIN THE PARTY</h4>
-          <div class="row g-3">
-            <div class="col-md-6"><label>Full Name</label><input type="text" class="form-control" placeholder="Your full name"></div>
-            <div class="col-md-6"><label>Email Address</label><input type="email" class="form-control" placeholder="your@email.com"></div>
-            <div class="col-md-6"><label>Phone Number</label><input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX"></div>
-            <div class="col-md-6"><label>State / Region</label><input type="text" class="form-control" placeholder="Your state"></div>
-            <div class="col-12"><label>Message / Reason for Joining</label><textarea class="form-control" rows="4" placeholder="Tell us about yourself and your interest in joining the Bhartiya Jan Seva Party…"></textarea></div>
-            <div class="col-12 text-center mt-2">
-              <a class="btn-saffron" style="font-size:.78rem;padding:.85rem 2.5rem;" href="https://docs.google.com/forms/d/e/1FAIpQLScyMth7uSLMnN6xymMWiP8OAnR_HpomKwDmcEdM6qjigvlGEQ/viewform?usp=dialog" target="_blank" rel="noopener">Submit &amp; Join the Mission</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -536,6 +698,9 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
         <a href="#ideology" class="footer-link">Ideology</a>
         <a href="#leader" class="footer-link">The Idols of Party</a>
         <a href="#manifesto" class="footer-link">Manifesto</a>
+        <a href="#roadmap" class="footer-link">Journey to Renaissance</a>
+        <a href="#employment" class="footer-link">Employment Model</a>
+        <a href="#join" class="footer-link">Join Form</a>
         <a href="#contact" class="footer-link">Contact</a>
       </div>
       <div class="col-md-2">
@@ -559,12 +724,10 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
 </footer>
 
 <script>
-// Placeholder portrait if a photo file can't be loaded
 function fb(i){i.onerror=null;
   var t=(i.alt||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");
   i.src="data:image/svg+xml;utf8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="280" height="360" viewBox="0 0 280 360"><rect width="280" height="360" fill="#1c1c1c"/><circle cx="140" cy="140" r="52" fill="none" stroke="#D4A017" stroke-width="2"/><text x="140" y="150" text-anchor="middle" font-size="40" fill="#D4A017">❀</text><text x="140" y="250" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#FF6B1A">'+t+'</text></svg>');}
 
-// Light / Black theme
 (function(){
   var root=document.documentElement,tb=document.getElementById('themeBtn');
   function isDark(){return root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches}
@@ -578,11 +741,9 @@ function fb(i){i.onerror=null;
   });
 })();
 
-// Mobile nav toggle
 document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navbarNav').classList.toggle('show')});
 document.querySelectorAll('#navbarNav a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navbarNav').classList.remove('show')})});
 
-// Scroll reveal
 var reveals=document.querySelectorAll('.reveal');
 var observer=new IntersectionObserver(function(entries){
   entries.forEach(function(entry,i){
@@ -591,16 +752,13 @@ var observer=new IntersectionObserver(function(entries){
 },{threshold:.08});
 reveals.forEach(function(el){observer.observe(el)});
 
-// Back to top
 var btn=document.getElementById('backToTop');
 btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
 window.addEventListener('scroll',function(){btn.style.display=window.scrollY>400?'flex':'none'});
 
-// Navbar shadow
 var navbar=document.querySelector('.navbar');
 window.addEventListener('scroll',function(){navbar.style.boxShadow=window.scrollY>60?'0 4px 20px rgba(0,0,0,.4)':'none'});
 
-// Active nav highlight
 var sections=document.querySelectorAll('section[id]');
 var navLinks=document.querySelectorAll('.nav-link');
 window.addEventListener('scroll',function(){
@@ -609,7 +767,6 @@ window.addEventListener('scroll',function(){
   navLinks.forEach(function(l){l.style.color=l.getAttribute('href')==='#'+current?'var(--gold)':''});
 });
 
-// Animated counters
 function animateCounter(el,target){
   var count=0,step=Math.ceil(target/40);
   var iv=setInterval(function(){count=Math.min(count+step,target);el.textContent=count;if(count>=target)clearInterval(iv)},40);
