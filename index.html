@@ -81,8 +81,8 @@ body{font-family:'EB Garamond',Georgia,serif;background:var(--page);color:var(--
 .btn-saffron:hover{background:var(--saffron-light);color:#fff;transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,107,26,.4)}
 .btn-outline-gold{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;padding:.75rem 2rem;background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:0;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:all .3s;text-decoration:none;cursor:pointer;display:inline-block}
 .btn-outline-gold:hover{background:var(--gold);color:var(--charcoal);transform:translateY(-2px)}
-.scroll-down{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.4);font-size:1.5rem;animation:bounce 2s ease infinite;z-index:2}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+.scroll-down{margin-top:1.8rem;color:rgba(255,255,255,.4);font-size:1.5rem;animation:bounce 2s ease infinite;text-align:center}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 
 .stats-bar{background:var(--charcoal);border-top:3px solid var(--saffron);border-bottom:3px solid var(--saffron);padding:2rem 0}
 .stat-item{text-align:center;border-right:1px solid rgba(255,107,26,.2);padding:.5rem 1rem}
@@ -217,8 +217,8 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
 <button id="backToTop" aria-label="Back to top"><i class="bi bi-chevron-up"></i></button>
 
 <nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
-    <a class="navbar-brand" href="#"><span>BJSP</span> · Bhartiya Jan Seva Party</a>
+  <div class="container" style="max-width:none;padding:0 1.5rem;">
+    <a class="navbar-brand" href="#">Bhartiya Jan Seva Party</a>
     <button class="navbar-toggler border-0" type="button" id="navToggle" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
@@ -258,10 +258,10 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
       Therefore, let Dharma never be harmed, lest it harm us in turn. — Manusmriti
     </div>
     <div class="hero-cta">
-      <a href="#manifesto" class="btn-outline-gold">Read Manifesto</a>
+      <a href="#manifesto" class="btn-saffron" style="padding:.5rem 1.3rem;font-size:.66rem;letter-spacing:.12em;">Read Manifesto</a>
     </div>
+    <div class="scroll-down"><i class="bi bi-chevron-double-down"></i></div>
   </div>
-  <div class="scroll-down"><i class="bi bi-chevron-double-down"></i></div>
 </section>
 
 <div class="stats-bar">
@@ -350,23 +350,25 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
 <section id="leader" class="py-5">
   <div class="container" style="padding:3rem 12px;">
     <div class="section-header reveal">
-      <span class="section-tag" style="color:var(--gold);">Jagadgurus of the Party</span>
+      <span class="section-tag" style="color:var(--gold);">Spiritual Lineage</span>
       <h2 class="section-title light">The Idols of the Party</h2>
       <div class="section-divider"><span></span><i class="bi bi-flower2"></i><span></span></div>
       <p class="mt-3" style="font-style:italic;color:rgba(255,255,255,.55);max-width:650px;margin:.8rem auto 0;font-size:1.02rem;">A living lineage of Acharyas whose wisdom and courage continue to guide the party’s Dharmic vision, presented in the order of the guru lineage.</p>
     </div>
 
+    <div class="leader-timeline">
+
       <div class="leader-entry reveal">
         <div class="row align-items-center g-5">
           <div class="col-md-4 text-center">
-            <span class="leader-era">Eternal · Jagadguru</span><br>
-            <div class="leader-frame"><img src="288793394869897604.jpg" alt="Chaturbhuj Janardan Jagadguru Narayan" onerror="fb(this)"></div>
+            <span class="leader-era">Eternal · Adi Guru</span><br>
+            <div class="leader-frame"><img src="Jagadguru Narayan Ji.jpg" alt="Jagadguru Narayan" onerror="fb(this)"></div>
             <div class="mt-4"><span class="virtue-badge">Vidya</span><span class="virtue-badge">Dharma</span><span class="virtue-badge">Sanatana</span></div>
           </div>
           <div class="col-md-8 leader-info">
             <h3>Jagadguru Narayan</h3>
-            <p class="leader-title">The Jagadguru of the Party</p>
-            <p>In the Vedic and Vaishnava traditions, Bhagavan Narayana is revered as the Jagadguru — the original source of sacred knowledge, from whom the teaching is held to descend through Brahma and the great sages to every generation of teachers that followed.</p>
+            <p class="leader-title">The Primordial Guru of the Vedic Tradition</p>
+            <p>In the Vedic and Vaishnava traditions, Bhagavan Narayana is revered as the Adi Guru — the original source of sacred knowledge, from whom the teaching is held to descend through Brahma and the great sages to every generation of teachers that followed.</p>
             <br>
             <p>He stands at the head of this lineage as the symbol of knowledge that is eternal, selfless and given for the welfare of all beings — the ideal that the Bhartiya Jan Seva Party places at the root of Vidya, Dharma and Seva.</p>
           </div>
@@ -394,7 +396,7 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
         <div class="row align-items-center g-5">
           <div class="col-md-4 text-center">
             <span class="leader-era">c. 1017 – 1137 CE</span><br>
-            <div class="leader-frame"><img src="SRI_RAMANUJACHARYA_JAYANTI.jpg" alt="Ramanujacharya" onerror="fb(this)"></div>
+            <div class="leader-frame"><img src="Ramanujaacharya Ji.jpg" alt="Ramanujacharya" onerror="fb(this)"></div>
             <div class="mt-4"><span class="virtue-badge">Bhakti</span><span class="virtue-badge">Vishishtadvaita</span><span class="virtue-badge">Seva</span></div>
           </div>
           <div class="col-md-8 leader-info">
@@ -411,7 +413,7 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
         <div class="row align-items-center g-5">
           <div class="col-md-4 text-center">
             <span class="leader-era">c. 1238 – 1317 CE</span><br>
-            <div class="leader-frame"><img src="images.jpg" alt="Madhvacharya" onerror="fb(this)"></div>
+            <div class="leader-frame"><img src="Madhvacharya Ji.jpg" alt="Madhvacharya" onerror="fb(this)"></div>
             <div class="mt-4"><span class="virtue-badge">Dvaita</span><span class="virtue-badge">Bhakti</span><span class="virtue-badge">Vidya</span></div>
           </div>
           <div class="col-md-8 leader-info">
