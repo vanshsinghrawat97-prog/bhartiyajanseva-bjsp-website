@@ -213,12 +213,117 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
 .navbar-brand{display:flex;align-items:center;gap:.65rem}
 .nav-logo{display:inline-block;width:40px;height:40px;flex:none}
 .hero-emblem{width:130px;height:130px;border:0;background-color:transparent}
+/* ═══ Advanced layer: 4 switchable designs + effects ═══ */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:2000;background:linear-gradient(90deg,var(--saffron),var(--gold-light));box-shadow:0 0 12px var(--saffron)}
+#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.navbar{background:color-mix(in srgb,var(--charcoal) 88%,transparent)!important;backdrop-filter:blur(16px) saturate(140%)}
+.hero-bg{background:radial-gradient(ellipse at 20% 40%,color-mix(in srgb,var(--saffron) 22%,transparent),transparent 55%),radial-gradient(ellipse at 85% 60%,color-mix(in srgb,var(--gold) 16%,transparent),transparent 55%),linear-gradient(180deg,color-mix(in srgb,var(--charcoal) 96%,transparent),color-mix(in srgb,var(--charcoal) 88%,transparent) 50%,var(--charcoal));animation:drift 14s ease-in-out infinite alternate;background-size:140% 140%,140% 140%,100% 100%}
+@keyframes drift{from{background-position:0 0,100% 100%,0 0}to{background-position:30% 20%,70% 80%,0 0}}
+.hero h1{background:linear-gradient(90deg,#fff 0%,var(--gold-light) 50%,#fff 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.section-title{position:relative}
+.pillar-card,.manifesto-card,.goal-card,.emp-step,.contact-card{will-change:transform;transition:transform .2s ease,box-shadow .3s,background .3s}
+.btn-saffron{background:linear-gradient(135deg,var(--saffron),var(--saffron-light))}
+
+/* design picker */
+#dzBtn{position:fixed;left:1.2rem;bottom:1.2rem;z-index:1500;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;background:var(--charcoal);color:var(--gold-light);border:1px solid var(--gold);padding:.65rem 1rem;border-radius:30px;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+#dzPanel{position:fixed;left:1.2rem;bottom:4.2rem;z-index:1500;width:min(270px,calc(100vw - 2.4rem));background:var(--charcoal);border:1px solid var(--gold);border-radius:14px;padding:.8rem;display:none;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+#dzPanel.open{display:block}
+#dzPanel h6{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:.1rem .3rem .6rem}
+.dz-opt{display:flex;align-items:center;gap:.7rem;width:100%;text-align:left;background:rgba(255,255,255,.05);border:1px solid transparent;border-radius:10px;padding:.5rem .6rem;margin-bottom:.4rem;cursor:pointer;color:#fff;font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:.05em}
+.dz-opt small{display:block;font-family:'EB Garamond',serif;font-size:.8rem;color:rgba(255,255,255,.55);letter-spacing:0}
+.dz-opt.on{border-color:var(--gold);background:rgba(255,255,255,.1)}
+.dz-sw{flex:none;width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.3)}
+
+/* Design 2: Sandal Temple (warm brown & copper) */
+:root[data-design="sandal"]{--charcoal:#3A1F14;--deep-green:#4A2A18;--saffron:#B8501A;--saffron-light:#D9733A;--saffron-dark:#8A3A10;--gold:#D8A63A;--gold-light:#F0CB72}
+:root[data-design="sandal"] :is(.pillar-card,.manifesto-card,.goal-card,.emp-step,.contact-card,.intro-card,.join-frame){border-radius:18px}
+:root[data-design="sandal"] :is(.btn-saffron,.btn-outline-gold){clip-path:none;border-radius:30px}
+/* Design 3: Midnight Gold (navy & gold, glow) */
+:root[data-design="midnight"]{--charcoal:#080D1C;--deep-green:#0B1630;--saffron:#E6A82E;--saffron-light:#F2C25C;--saffron-dark:#B9801A;--gold:#9FB8FF;--gold-light:#DCE6FF}
+:root[data-design="midnight"] :is(.btn-saffron,.ticker-text,.pledge-section h2,.pledge-section p){color:#0B1020}
+:root[data-design="midnight"] .pledge-section .btn-outline-gold{color:#0B1020!important;border-color:#0B1020!important}
+:root[data-design="midnight"] :is(.pillar-card,.emp-step,.contact-card):hover{box-shadow:0 0 34px rgba(230,168,46,.28)}
+:root[data-design="midnight"] :is(.pillar-card,.manifesto-card,.goal-card,.emp-step,.contact-card,.intro-card){border-radius:2px}
+/* Design 4: Tulsi Forest (green & amber, leaf corners) */
+:root[data-design="forest"]{--charcoal:#0F2418;--deep-green:#0A1A10;--saffron:#E07B00;--saffron-light:#F59A2A;--saffron-dark:#B05E00;--gold:#D9C25B;--gold-light:#F0E28F}
+:root[data-design="forest"] :is(.pillar-card,.manifesto-card,.goal-card,.emp-step,.contact-card,.intro-card,.join-frame){border-radius:26px 4px 26px 4px}
+
+/* Looks 5-7: full-page redesigns */
+#dzPanel{max-height:calc(100vh - 6.5rem);overflow:auto}
+/* Look 5: Ivory Manuscript (light parchment, serif, vermilion) */
+:root[data-design="ivory"]{--page:#F7F0E1;--alt:#EFE3CB;--card:#FFFBF1;--ink:#2B1B10;--ink2:#3E2B1B;--ink3:#6A5440;--hair:rgba(43,27,16,.1);--charcoal:#EADBC0;--deep-green:#E3D2B1;--saffron:#A3281E;--saffron-light:#C23A2C;--saffron-dark:#7A1C14;--gold:#8A6410;--gold-light:#B8861C;color-scheme:light}
+/* Look 6: Clean Paper (white, sans-serif, sharp, minimal) */
+:root[data-design="paper"]{--page:#FFFFFF;--alt:#F4F4F1;--card:#FFFFFF;--ink:#111111;--ink2:#222222;--ink3:#555555;--hair:rgba(0,0,0,.08);--charcoal:#F1F1EE;--deep-green:#E9E9E4;--saffron:#E4572E;--saffron-light:#F07A56;--saffron-dark:#B9401D;--gold:#333333;--gold-light:#666666;color-scheme:light}
+:root:is([data-design="ivory"],[data-design="paper"]) :is(.hero,.pillars-section,#leader,#employment,#contact,.stats-bar){color:var(--ink)}
+:root:is([data-design="ivory"],[data-design="paper"]) :is(.hero-shloka,.hero-shloka-trans,.stat-label,.pillar-card p,.leader-info p,.emp-step p,.emp-note,.contact-card p,.contact-card a,[style*="255,255,255"]){color:var(--ink3)!important}
+:root:is([data-design="ivory"],[data-design="paper"]) :is(.hero h1,.section-title.light){background:none;color:var(--ink);-webkit-text-fill-color:var(--ink);animation:none}
+:root:is([data-design="ivory"],[data-design="paper"]) .nav-link{color:var(--ink)!important}
+:root:is([data-design="ivory"],[data-design="paper"]) .navbar-brand{color:var(--saffron)!important}
+:root:is([data-design="ivory"],[data-design="paper"]) .navbar-toggler-icon{filter:invert(1)}
+:root:is([data-design="ivory"],[data-design="paper"]) :is(.pillar-card,.emp-step,.contact-card){background:var(--card);box-shadow:0 2px 18px rgba(0,0,0,.06)}
+:root[data-design="ivory"] :is(.section-title,.hero h1,.footer-brand,.leader-info h3){font-family:'EB Garamond',serif;font-weight:600}
+:root[data-design="ivory"] :is(.pillar-card,.manifesto-card,.goal-card,.emp-step,.contact-card,.intro-card){border-radius:3px;border-color:rgba(122,28,20,.3)}
+:root[data-design="paper"] *{font-family:'Helvetica Neue',Arial,sans-serif!important}
+:root[data-design="paper"] :is(.pillar-card,.manifesto-card,.goal-card,.emp-step,.contact-card,.intro-card,.join-frame){border-radius:0;box-shadow:none;border:1px solid #111}
+:root[data-design="paper"] :is(.btn-saffron,.btn-outline-gold){clip-path:none;border-radius:0}
+/* Look 7: Aurora Glass (violet-pink-sky glow, frosted cards) */
+:root[data-design="aurora"]{--page:#0E0820;--alt:#140C2E;--card:#1A1038;--ink:#F3E8FF;--ink2:#DDD0F5;--ink3:#B5A5D8;--hair:rgba(255,255,255,.08);--charcoal:#120A2A;--deep-green:#1B0F3D;--saffron:#D946EF;--saffron-light:#F472B6;--saffron-dark:#A21CAF;--gold:#7DD3FC;--gold-light:#E0F2FE;color-scheme:dark}
+:root[data-design="aurora"] body{background:radial-gradient(circle at 12% 8%,rgba(217,70,239,.22),transparent 45%),radial-gradient(circle at 88% 35%,rgba(56,189,248,.18),transparent 45%),var(--page);background-attachment:fixed}
+:root[data-design="aurora"] :is(#intro,#ideology,#manifesto,#roadmap,#join){background:transparent}
+:root[data-design="aurora"] :is(.pillar-card,.manifesto-card,.goal-card,.emp-step,.contact-card,.intro-card){background:rgba(255,255,255,.07);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:22px}
+:root[data-design="aurora"] :is(.btn-saffron,.btn-outline-gold){clip-path:none;border-radius:30px}
+
+/* language picker, Jan Samvad */
+@media(min-width:992px){.col-lg-5{width:41.6667%}}
+.lang-sel{font-family:'Cinzel',serif;font-size:.68rem;max-width:150px;color:var(--gold-light);background:var(--charcoal);border:1px solid var(--gold);padding:.4rem .5rem;cursor:pointer}
+@media(max-width:991px){.lang-sel{margin:.5rem 0 .3rem;max-width:100%}}
+#google_translate_element{position:absolute;left:-9999px;top:0}
+.skiptranslate iframe,.goog-te-banner-frame,#goog-gt-tt,.goog-tooltip{display:none!important}
+body{top:0!important}
+.lang-toast{position:fixed;left:50%;bottom:5rem;transform:translateX(-50%);z-index:3000;max-width:min(92vw,420px);background:var(--charcoal);color:#fff;border:1px solid var(--gold);border-radius:10px;padding:.8rem 1rem;font-size:.95rem;display:none;text-align:center}
+.lang-toast.show{display:block}
+.lang-toast a{color:var(--gold-light);text-decoration:underline}
+.sv-form label{display:block;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin:.9rem 0 .3rem}
+.sv-form .form-control{background:var(--card);color:var(--ink);border:1px solid rgba(255,107,26,.35);border-radius:4px;padding:.7rem .9rem;font-family:inherit}
+.sv-form .form-control.invalid{border-color:#e03b3b}
+.sv-out{margin-top:.8rem;font-size:.95rem;color:var(--ink3)}
+#sankalp{padding:5rem 0;background:var(--page)}
+.sk-list{max-width:860px;margin:0 auto;display:grid;gap:1rem}
+.sk-item{display:flex;gap:1.2rem;align-items:center;background:var(--card);border:1px solid rgba(255,107,26,.15);border-left:4px solid var(--saffron);border-radius:4px;padding:1.2rem 1.4rem;box-shadow:0 2px 20px rgba(0,0,0,.05)}
+.sk-num{font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--saffron);min-width:2.8rem;text-align:center;line-height:1}
+.sk-body{flex:1}
+.sk-body h5{font-family:'Cinzel',serif;font-size:.95rem;letter-spacing:.05em;color:var(--ink);margin-bottom:.3rem}
+.sk-body p{font-size:1.05rem;color:var(--ink3);line-height:1.7}
+.sk-act{display:flex;flex-direction:column;gap:.4rem}
+.sk-btn{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.5rem .9rem;border:1px solid var(--saffron);background:transparent;color:var(--saffron);cursor:pointer;border-radius:3px;white-space:nowrap;text-decoration:none;text-align:center}
+.sk-btn:hover{background:var(--saffron);color:#fff}
+@media(max-width:600px){.sk-item{flex-wrap:wrap}.sk-act{flex-direction:row;width:100%}.sk-btn{flex:1}}
+#mediakit{padding:5rem 0;background:var(--alt)}
+.mk-logo{width:120px;height:120px;margin:.6rem auto 1rem;box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.mk-sw{display:flex;align-items:center;gap:.7rem;width:100%;background:none;border:1px solid var(--hair);border-radius:6px;padding:.4rem .6rem;margin-bottom:.5rem;cursor:pointer;color:var(--ink);font-family:inherit;font-size:1rem;text-align:left}
+.mk-sw:hover{border-color:var(--saffron)}
+.mk-sw .dot{flex:none;width:26px;height:26px;border-radius:50%}
+.mk-box{background:var(--card);border:1px dashed rgba(255,107,26,.45);padding:.8rem;font-size:.98rem;color:var(--ink2);line-height:1.7;border-radius:4px;margin:.5rem 0 .7rem}
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
+<div id="progress"></div>
+<div id="google_translate_element"></div>
+<div id="langToast" class="lang-toast" role="status"></div>
+<div id="dzPanel" role="menu">
+  <h6>Choose a design</h6>
+  <button class="dz-opt" data-d="royal" type="button"><span class="dz-sw" style="background:linear-gradient(135deg,#1C1C1C 50%,#FF6B1A 50%)"></span><span>Royal Saffron<small>Classic dark &amp; saffron</small></span></button>
+  <button class="dz-opt" data-d="sandal" type="button"><span class="dz-sw" style="background:linear-gradient(135deg,#3A1F14 50%,#B8501A 50%)"></span><span>Sandal Temple<small>Warm copper, soft round shapes</small></span></button>
+  <button class="dz-opt" data-d="midnight" type="button"><span class="dz-sw" style="background:linear-gradient(135deg,#080D1C 50%,#E6A82E 50%)"></span><span>Midnight Gold<small>Deep navy, golden glow</small></span></button>
+  <button class="dz-opt" data-d="forest" type="button"><span class="dz-sw" style="background:linear-gradient(135deg,#0F2418 50%,#E07B00 50%)"></span><span>Tulsi Forest<small>Green &amp; amber, leaf corners</small></span></button>
+  <button class="dz-opt" data-d="ivory" type="button"><span class="dz-sw" style="background:linear-gradient(135deg,#F7F0E1 50%,#A3281E 50%)"></span><span>Ivory Manuscript<small>Light parchment, serif, vermilion</small></span></button>
+  <button class="dz-opt" data-d="paper" type="button"><span class="dz-sw" style="background:linear-gradient(135deg,#FFFFFF 50%,#E4572E 50%)"></span><span>Clean Paper<small>White, minimal, sharp lines</small></span></button>
+  <button class="dz-opt" data-d="aurora" type="button"><span class="dz-sw" style="background:linear-gradient(135deg,#120A2A 35%,#D946EF 35% 70%,#7DD3FC 70%)"></span><span>Aurora Glass<small>Violet glow, frosted cards</small></span></button>
+</div>
 <button id="backToTop" aria-label="Back to top"><i class="bi bi-chevron-up"></i></button>
 
 <nav class="navbar navbar-expand-lg sticky-top">
@@ -233,8 +338,10 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
         <li class="nav-item"><a class="nav-link" href="#manifesto">Manifesto</a></li>
         <li class="nav-item"><a class="nav-link" href="#roadmap">Journey</a></li>
         <li class="nav-item"><a class="nav-link" href="#employment">Employment</a></li>
+        <li class="nav-item"><a class="nav-link" href="#samvad">Jan Samvad</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         <li class="nav-item ms-2"><a class="btn-saffron" href="#join" style="padding:.45rem 1.2rem;font-size:.72rem;letter-spacing:.1em;">Join Us</a></li>
+        <li class="nav-item ms-2"><select id="langSel" class="lang-sel notranslate" translate="no" aria-label="Choose language"><option value="en">English</option><option value="as">অসমীয়া (Assamese)</option><option value="bn">বাংলা (Bengali)</option><option value="brx">बड़ो (Bodo)</option><option value="doi">डोगरी (Dogri)</option><option value="gu">ગુજરાતી (Gujarati)</option><option value="hi">हिन्दी (Hindi)</option><option value="kn">ಕನ್ನಡ (Kannada)</option><option value="ks">کٲشُر (Kashmiri)</option><option value="gom">कोंकणी (Konkani)</option><option value="mai">मैथिली (Maithili)</option><option value="ml">മലയാളം (Malayalam)</option><option value="mni-Mtei">ꯃꯤꯇꯩꯂꯣꯟ (Manipuri)</option><option value="mr">मराठी (Marathi)</option><option value="ne">नेपाली (Nepali)</option><option value="or">ଓଡ଼ିଆ (Odia)</option><option value="pa">ਪੰਜਾਬੀ (Punjabi)</option><option value="sa">संस्कृतम् (Sanskrit)</option><option value="sat">ᱥᱟᱱᱛᱟᱲᱤ (Santali)</option><option value="sd">سنڌي (Sindhi)</option><option value="ta">தமிழ் (Tamil)</option><option value="te">తెలుగు (Telugu)</option><option value="ur">اردو (Urdu)</option></select></li>
         <li class="nav-item ms-2"><button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme"></button></li>
       </ul>
     </div>
@@ -250,6 +357,7 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-pattern"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
   <div class="hero-content container">
     <div class="hero-emblem logo-img" role="img" aria-label="Bhartiya Jan Seva Party logo"></div>
     <div class="hero-sub">धर्म · विद्या · सेवा</div>
@@ -273,9 +381,9 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
   <div class="container">
     <div class="row g-0 text-center">
       <div class="col-6 col-md-3 stat-item"><span class="stat-num">2024</span><span class="stat-label">Founded</span></div>
-      <div class="col-6 col-md-3 stat-item"><span class="stat-num">28</span><span class="stat-label">States Active</span></div>
-      <div class="col-6 col-md-3 stat-item"><span class="stat-num">7</span><span class="stat-label">Core Pillars</span></div>
-      <div class="col-6 col-md-3 stat-item"><span class="stat-num">1</span><span class="stat-label">Unified Vision</span></div>
+      <div class="col-6 col-md-3 stat-item"><span class="stat-num">6</span><span class="stat-label">Manifesto Areas</span></div>
+      <div class="col-6 col-md-3 stat-item"><span class="stat-num">3</span><span class="stat-label">Core Pillars</span></div>
+      <div class="col-6 col-md-3 stat-item"><span class="stat-num">9</span><span class="stat-label">Journey Goals</span></div>
     </div>
   </div>
 </div>
@@ -356,7 +464,7 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
   <div class="container" style="padding:3rem 12px;">
     <div class="section-header reveal">
       <span class="section-tag" style="color:var(--gold);">Jagadgurus of the Party</span>
-      <h2 class="section-title light">The Idols of the Party</h2>
+      <h2 class="section-title light">Idols of the Party</h2>
       <div class="section-divider"><span></span><i class="bi bi-flower2"></i><span></span></div>
       <p class="mt-3" style="font-style:italic;color:rgba(255,255,255,.55);max-width:650px;margin:.8rem auto 0;font-size:1.02rem;">A living lineage of Acharyas whose wisdom and courage continue to guide the party’s Dharmic vision, presented in the order of the guru lineage.</p>
     </div>
@@ -364,8 +472,8 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
       <div class="leader-entry reveal">
         <div class="row align-items-center g-5">
           <div class="col-md-4 text-center">
-            <span class="leader-era">Eternal · Adi Guru</span><br>
-            <div class="leader-frame"><img src="Narayan.jpg" alt="Jagadguru Sheshaya Purshottam Narayan" onerror="fb(this)"></div>
+            <span class="leader-era">Eternal · Jagadguru</span><br>
+            <div class="leader-frame"><img src="Narayan.jpg" alt="Jagadguru Narayan" onerror="fb(this)"></div>
             <div class="mt-4"><span class="virtue-badge">Vidya</span><span class="virtue-badge">Dharma</span><span class="virtue-badge">Sanatana</span></div>
           </div>
           <div class="col-md-8 leader-info">
@@ -420,7 +528,7 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
             <div class="mt-4"><span class="virtue-badge">Dvaita</span><span class="virtue-badge">Bhakti</span><span class="virtue-badge">Vidya</span></div>
           </div>
           <div class="col-md-8 leader-info">
-            <h3>Jagadguru  Madhvacharya</h3>
+            <h3>Jagadguru Punarprajn Madhvacharya</h3>
             <p class="leader-title">Founder of Dvaita Vedanta &amp; the Udupi Ashta Mathas</p>
             <p>Born near Udupi in present-day Karnataka, Madhvacharya is the great teacher of Dvaita Vedanta, the philosophy of duality, which affirms the eternal distinction between the individual soul and the Supreme and places devotion to Lord Vishnu at the heart of spiritual life. He wrote commentaries on the Brahma Sutras, the Upanishads and the Bhagavad Gita, and debated scholars of other schools with great rigour.</p>
             <br>
@@ -544,12 +652,12 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
         <p>Learn from the town planning, water management, metallurgy and craft science of the Harappan and other ancient civilizations, and bring that wisdom into modern invention.</p>
       </div></div>
       <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
-        <span class="goal-year">6</span><h5>Shows &amp; Serials on Faith and Social Problems</h5>
-        <p>Produce television and streaming stories that portray religious and societal problems, and the forces of division and deceit behind them, so that the public learns to recognise them.</p>
+        <span class="goal-year">6</span><h5>Shows &amp; Serials on Faith and Social Issues</h5>
+        <p>Produce television and streaming stories on real religious and social issues, with scripts reviewed by scholars and social experts, so that viewers understand the problems and the Dharmic ways to address them.</p>
       </div></div>
       <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
-        <span class="goal-year">7</span><h5>Documentaries on the Reality of the World</h5>
-        <p>Make investigative documentaries on secretive organisations and hidden influence in religious fields, and on the links between politicians and religious preachers, based on verified facts and open evidence.</p>
+        <span class="goal-year">7</span><h5>Fact-Based Documentaries on Influence in Public Life</h5>
+        <p>Examine the role of money, organisations and political links in religious institutions. Every film will cite its sources, rely on public records, court documents and on-record interviews, offer those concerned a right of reply, and be checked by an independent review panel before release.</p>
       </div></div>
       <div class="col-md-6 col-lg-4 reveal"><div class="goal-card">
         <span class="goal-year">8</span><h5>Upbringing of Great Religious Scholars</h5>
@@ -559,6 +667,29 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
         <span class="goal-year">9</span><h5>Great Recitations of Shastriya Topics</h5>
         <p>Hold large public recitations and discourses by scholars on the Shastras, in the languages of the people, to spread awareness in every region.</p>
       </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="sankalp" class="py-5">
+  <div class="container" style="padding:3rem 12px;">
+    <div class="section-header reveal">
+      <span class="section-tag">Our Promises</span>
+      <h2 class="section-title">Sankalp Patra</h2>
+      <div class="section-divider"><span></span><i class="bi bi-flower2"></i><span></span></div>
+      <p class="mt-3" style="font-style:italic;color:var(--ink3);max-width:620px;margin:.8rem auto 0;font-size:1.05rem;">Ten core promises to the people of Bharat. Copy any one to quote it, or share it on WhatsApp.</p>
+    </div>
+    <div class="sk-list">
+      <div class="sk-item reveal"><span class="sk-num">1</span><div class="sk-body"><h5>Education with Character</h5><p>We will pair moral education with technical skill at every level of schooling.</p></div><div class="sk-act"><button class="sk-btn sk-copy" type="button">Copy</button><a class="sk-btn sk-wa" target="_blank" rel="noopener">Share</a></div></div>
+      <div class="sk-item reveal"><span class="sk-num">2</span><div class="sk-body"><h5>Dignified Work for All</h5><p>We will back MSMEs, skilling and local enterprise so every willing citizen can find decent work.</p></div><div class="sk-act"><button class="sk-btn sk-copy" type="button">Copy</button><a class="sk-btn sk-wa" target="_blank" rel="noopener">Share</a></div></div>
+      <div class="sk-item reveal"><span class="sk-num">3</span><div class="sk-body"><h5>Clean and Accountable Governance</h5><p>We will bring e-governance, police reform and anti-corruption systems that citizens can use and check.</p></div><div class="sk-act"><button class="sk-btn sk-copy" type="button">Copy</button><a class="sk-btn sk-wa" target="_blank" rel="noopener">Share</a></div></div>
+      <div class="sk-item reveal"><span class="sk-num">4</span><div class="sk-body"><h5>Protect Our Rivers and Forests</h5><p>We will protect rivers, forests and biodiversity as sacred national assets, with no prosperity at the cost of nature.</p></div><div class="sk-act"><button class="sk-btn sk-copy" type="button">Copy</button><a class="sk-btn sk-wa" target="_blank" rel="noopener">Share</a></div></div>
+      <div class="sk-item reveal"><span class="sk-num">5</span><div class="sk-body"><h5>A Self-Reliant Bharat</h5><p>We will strengthen indigenous defence, industry and technology so that the nation stands on its own capability.</p></div><div class="sk-act"><button class="sk-btn sk-copy" type="button">Copy</button><a class="sk-btn sk-wa" target="_blank" rel="noopener">Share</a></div></div>
+      <div class="sk-item reveal"><span class="sk-num">6</span><div class="sk-body"><h5>Equal Dignity</h5><p>We will end caste-based discrimination through economically targeted affirmative action.</p></div><div class="sk-act"><button class="sk-btn sk-copy" type="button">Copy</button><a class="sk-btn sk-wa" target="_blank" rel="noopener">Share</a></div></div>
+      <div class="sk-item reveal"><span class="sk-num">7</span><div class="sk-body"><h5>Safety First</h5><p>We will have zero tolerance for violent and organised crime, with full support services for victims.</p></div><div class="sk-act"><button class="sk-btn sk-copy" type="button">Copy</button><a class="sk-btn sk-wa" target="_blank" rel="noopener">Share</a></div></div>
+      <div class="sk-item reveal"><span class="sk-num">8</span><div class="sk-body"><h5>Renew Our Heritage</h5><p>We will restore our scriptures, culture and civic manners, and join Shastraic wisdom with modern science.</p></div><div class="sk-act"><button class="sk-btn sk-copy" type="button">Copy</button><a class="sk-btn sk-wa" target="_blank" rel="noopener">Share</a></div></div>
+      <div class="sk-item reveal"><span class="sk-num">9</span><div class="sk-body"><h5>Honest, Fact-Based Media</h5><p>Our films will cite their sources, offer a right of reply, and pass an independent review before release.</p></div><div class="sk-act"><button class="sk-btn sk-copy" type="button">Copy</button><a class="sk-btn sk-wa" target="_blank" rel="noopener">Share</a></div></div>
+      <div class="sk-item reveal"><span class="sk-num">10</span><div class="sk-body"><h5>Listen First</h5><p>We will open a channel for citizens&rsquo; ideas, complaints and petitions, and read every message.</p></div><div class="sk-act"><button class="sk-btn sk-copy" type="button">Copy</button><a class="sk-btn sk-wa" target="_blank" rel="noopener">Share</a></div></div>
     </div>
   </div>
 </section>
@@ -659,7 +790,7 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
 <section class="pledge-section text-center">
   <div class="container position-relative" style="z-index:1">
     <h2>Join the Party for Dharm Sankalp</h2>
-    <p>Every conscious citizen who believes in truth, service, and the dignity of all life is welcome. This is not merely a party — it is a mission.</p>
+    <p>Every conscious citizen who believes in truth, service, and the dignity of all life is welcome. This is not merely a party — it is a Sankalp.</p>
     <a href="#join" class="btn-outline-gold" style="background:rgba(255,255,255,.1);color:#fff;border-color:#fff;">Become a Member</a>
   </div>
 </section>
@@ -676,6 +807,68 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyMth7uSLMnN6xymMWiP8OAnR_HpomKwDmcEdM6qjigvlGEQ/viewform?embedded=true" title="Bhartiya Jan Seva Party membership form" loading="lazy" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
     <p class="join-alt reveal">Form not showing? <a href="https://docs.google.com/forms/d/e/1FAIpQLScyMth7uSLMnN6xymMWiP8OAnR_HpomKwDmcEdM6qjigvlGEQ/viewform?usp=dialog" target="_blank" rel="noopener">Open it in a new tab</a></p>
+  </div>
+</section>
+
+<section id="mediakit" class="py-5">
+  <div class="container" style="padding:3rem 12px;">
+    <div class="section-header reveal">
+      <span class="section-tag">For Press &amp; Supporters</span>
+      <h2 class="section-title">Media Kit</h2>
+      <div class="section-divider"><span></span><i class="bi bi-flower2"></i><span></span></div>
+      <p class="mt-3" style="font-style:italic;color:var(--ink3);max-width:620px;margin:.8rem auto 0;font-size:1.05rem;">Our logo, colours and ready-to-use text. Please use them as given.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 reveal"><div class="goal-card" style="text-align:center">
+        <h5>Logo</h5>
+        <div class="mk-logo logo-img" role="img" aria-label="Bhartiya Jan Seva Party logo"></div>
+        <p style="margin-bottom:1rem">Round emblem on a dark background.</p>
+        <a id="mkDl" class="sk-btn" download="bhartiya-jan-seva-party-logo.png" style="display:inline-block">Download logo</a>
+      </div></div>
+      <div class="col-md-4 reveal"><div class="goal-card">
+        <h5>Brand colours</h5>
+        <p style="margin-bottom:.8rem">Tap a colour to copy its code.</p>
+        <button class="mk-sw" type="button" data-copy="#FF6B1A"><span class="dot" style="background:#FF6B1A"></span><span class="cp-l">Saffron #FF6B1A</span></button>
+        <button class="mk-sw" type="button" data-copy="#D4A017"><span class="dot" style="background:#D4A017"></span><span class="cp-l">Gold #D4A017</span></button>
+        <button class="mk-sw" type="button" data-copy="#1C1C1C"><span class="dot" style="background:#1C1C1C"></span><span class="cp-l">Charcoal #1C1C1C</span></button>
+        <button class="mk-sw" type="button" data-copy="#1A3A2A"><span class="dot" style="background:#1A3A2A"></span><span class="cp-l">Deep green #1A3A2A</span></button>
+        <button class="mk-sw" type="button" data-copy="#FDF6E3"><span class="dot" style="background:#FDF6E3;border:1px solid #bbb"></span><span class="cp-l">Cream #FDF6E3</span></button>
+      </div></div>
+      <div class="col-md-4 reveal"><div class="goal-card">
+        <h5>Ready-to-use text</h5>
+        <div class="mk-box" id="mkAbout">Bhartiya Jan Seva Party is founded on the ideals of the Aryavartha Thesis: enlightened governance, cultural integrity and universal harmony rooted in Dharma. Guided by Vidya (knowledge), Dharma (righteousness) and Seva (service), the party works for conscious education, dignified employment, clean governance, harmony with nature and a cultural renaissance for Bharat.</div>
+        <button class="sk-btn" type="button" data-copy-from="mkAbout">Copy about text</button>
+        <div class="mk-box" id="mkTag" style="margin-top:1rem">धर्म · विद्या · सेवा<br>#BhartiyaJanSevaParty #DharmaVidyaSeva</div>
+        <button class="sk-btn" type="button" data-copy-from="mkTag">Copy tagline &amp; hashtags</button>
+        <p style="margin-top:1rem">Press contact: <a href="mailto:vanshsinghrawat97@gmail.com" style="color:var(--saffron);text-decoration:underline">vanshsinghrawat97@gmail.com</a></p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="samvad" class="py-5">
+  <div class="container" style="padding:3rem 12px;">
+    <div class="section-header reveal">
+      <span class="section-tag">Voice of the People</span>
+      <h2 class="section-title">Jan Samvad</h2>
+      <div class="section-divider"><span></span><i class="bi bi-flower2"></i><span></span></div>
+      <p class="mt-3" style="font-style:italic;color:var(--ink3);max-width:620px;margin:.8rem auto 0;font-size:1.05rem;">Share an idea, raise a complaint, or support a petition. Every message is read.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-7 reveal"><div class="goal-card sv-form" style="height:auto">
+        <h5>Send your idea or complaint</h5>
+        <label for="svType">Type *</label>
+        <select id="svType" class="form-control"><option>Idea / Suggestion</option><option>Complaint</option><option>Petition</option><option>Other</option></select>
+        <label for="svName">Full name *</label><input id="svName" class="form-control" type="text" placeholder="Your name">
+        <label for="svState">State / City *</label><input id="svState" class="form-control" type="text" placeholder="Where you live">
+        <label for="svMsg">Your message *</label><textarea id="svMsg" class="form-control" rows="5" placeholder="Describe your idea or the problem clearly"></textarea>
+        <div style="text-align:center;margin-top:1.2rem"><button type="button" id="svBtn" class="btn-saffron">Send via Email</button><div id="svMsgOut" class="sv-out" role="alert"></div></div>
+      </div></div>
+      <div class="col-lg-5 reveal">
+        <div class="goal-card" style="height:auto;margin-bottom:1.5rem"><span class="goal-year">✍</span><h5>Citizens&rsquo; Petition</h5><p>Have a demand that deserves public attention? Choose &ldquo;Petition&rdquo; in the form and state the issue, the change you want and who it affects. Petitions with clear facts are taken up first.</p></div>
+        <div class="goal-card" style="height:auto"><span class="goal-year">☎</span><h5>Helpline &amp; Direct Contact</h5><p>Write to <a href="mailto:vanshsinghrawat97@gmail.com" style="color:var(--saffron);text-decoration:underline">vanshsinghrawat97@gmail.com</a> or join the <a href="https://chat.whatsapp.com/HoaA9wWojtq4QE06rmDmj4" target="_blank" rel="noopener" style="color:var(--saffron);text-decoration:underline">WhatsApp Broadcast</a> for updates.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -721,6 +914,9 @@ footer{background:#0a0a0a;border-top:3px solid var(--saffron);padding:3rem 0 1.5
         <a href="#manifesto" class="footer-link">Manifesto</a>
         <a href="#roadmap" class="footer-link">Journey to Renaissance</a>
         <a href="#employment" class="footer-link">Employment Model</a>
+        <a href="#sankalp" class="footer-link">Sankalp Patra</a>
+        <a href="#mediakit" class="footer-link">Media Kit</a>
+        <a href="#samvad" class="footer-link">Jan Samvad</a>
         <a href="#join" class="footer-link">Join Form</a>
         <a href="#contact" class="footer-link">Contact</a>
       </div>
@@ -802,6 +998,88 @@ var statsObserver=new IntersectionObserver(function(entries){
 },{threshold:.5});
 var statsBar=document.querySelector('.stats-bar');
 if(statsBar)statsObserver.observe(statsBar);
+
+// Advanced layer: design picker, progress bar, card tilt, hero particles
+(function(){
+  var root=document.documentElement,ok={royal:1,sandal:1,midnight:1,forest:1,ivory:1,paper:1,aurora:1};
+  var db=document.getElementById('dzBtn'),dp=document.getElementById('dzPanel');
+  function setD(d){
+    if(d==='royal')root.removeAttribute('data-design');else root.setAttribute('data-design',d);
+    try{localStorage.setItem('bjsp-design',d)}catch(e){}
+    document.querySelectorAll('.dz-opt').forEach(function(b){b.classList.toggle('on',b.dataset.d===d)});
+    colors();
+  }
+  var sv='royal';try{sv=localStorage.getItem('bjsp-design')||'royal'}catch(e){}
+  if(!ok[sv])sv='royal';
+  db.addEventListener('click',function(){var o=dp.classList.toggle('open');db.setAttribute('aria-expanded',o)});
+  dp.addEventListener('click',function(e){var b=e.target.closest('.dz-opt');if(b){setD(b.dataset.d);dp.classList.remove('open')}});
+  document.addEventListener('click',function(e){if(!dp.contains(e.target)&&e.target!==db){dp.classList.remove('open')}});
+
+  var pg=document.getElementById('progress');
+  window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight;pg.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
+
+  if(matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+    document.querySelectorAll('.pillar-card,.manifesto-card,.goal-card,.emp-step,.contact-card').forEach(function(c){
+      c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(700px) rotateX('+(-y*6)+'deg) rotateY('+(x*6)+'deg) translateY(-4px)'});
+      c.addEventListener('mouseleave',function(){c.style.transform=''});
+    });
+  }
+
+  var cv=document.getElementById('fx'),cx=cv.getContext('2d'),P=[],col='212,160,23';
+  function colors(){var g=getComputedStyle(root).getPropertyValue('--gold-light').trim(),m=/^#([0-9a-f]{6})$/i.exec(g);if(m){var n=parseInt(m[1],16);col=(n>>16&255)+','+(n>>8&255)+','+(n&255)}}
+  function size(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight;P=[];for(var i=0;i<Math.min(60,cv.width/18);i++)P.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*2+.6,v:Math.random()*.5+.2,a:Math.random()*.6+.2})}
+  function tick(){cx.clearRect(0,0,cv.width,cv.height);P.forEach(function(p){p.y-=p.v;p.x+=Math.sin(p.y/40)*.3;if(p.y<-5){p.y=cv.height+5;p.x=Math.random()*cv.width}cx.beginPath();cx.fillStyle='rgba('+col+','+p.a+')';cx.arc(p.x,p.y,p.r,0,6.283);cx.fill()});requestAnimationFrame(tick)}
+  addEventListener('resize',size);size();setD(sv);
+  if(!matchMedia('(prefers-reduced-motion:reduce)').matches)tick();
+})();
+
+// Language selector (22 scheduled languages) via Google Website Translate
+(function(){
+  var sel=document.getElementById('langSel'),toast=document.getElementById('langToast'),codes=[].slice.call(sel.options).map(function(o){return o.value}).filter(function(v){return v!=='en'}).join(',');
+  function say(h){toast.innerHTML=h;toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},9000)}
+  window.gtInit=function(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:codes,autoDisplay:false},'google_translate_element')};
+  var m=document.cookie.match(/googtrans=\/en\/([^;]+)/);if(m){for(var i=0;i<sel.options.length;i++)if(sel.options[i].value===m[1])sel.selectedIndex=i}
+  var s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=gtInit';s.async=true;document.head.appendChild(s);
+  sel.addEventListener('change',function(){
+    var v=sel.value;
+    if(v==='en'){document.cookie='googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';location.reload();return}
+    var c=document.querySelector('.goog-te-combo');
+    if(c){c.value=v;c.dispatchEvent(new Event('change'));return}
+    say('Automatic translation loads when the site is on its own web address. <a target="_blank" rel="noopener" href="https://translate.google.com/translate?sl=en&tl='+encodeURIComponent(v)+'&u='+encodeURIComponent(location.href)+'">Open a translated copy</a>');
+  });
+})();
+
+// Sankalp Patra share/copy and Media Kit copy buttons
+(function(){
+  function copy(t,btn){
+    var lab=btn.querySelector('.cp-l')||btn,old=lab.textContent;
+    function done(){lab.textContent='Copied ✓';setTimeout(function(){lab.textContent=old},1500)}
+    function fb(){var a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(a);done()}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb)}else fb();
+  }
+  document.querySelectorAll('.sk-item').forEach(function(it){
+    var q='“'+it.querySelector('h5').textContent+': '+it.querySelector('p').textContent+'” — Bhartiya Jan Seva Party, Sankalp '+it.querySelector('.sk-num').textContent;
+    it.querySelector('.sk-copy').addEventListener('click',function(){copy(q,this)});
+    it.querySelector('.sk-wa').href='https://wa.me/?text='+encodeURIComponent(q+'\n'+location.href.split('#')[0]);
+  });
+  document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){copy(b.dataset.copy,b)})});
+  document.querySelectorAll('[data-copy-from]').forEach(function(b){b.addEventListener('click',function(){copy(document.getElementById(b.dataset.copyFrom).innerText.trim(),b)})});
+  var dl=document.getElementById('mkDl'),bg=getComputedStyle(document.querySelector('.mk-logo')).backgroundImage;
+  if(dl&&bg&&bg!=='none')dl.href=bg.replace(/^url\(["']?|["']?\)$/g,'');
+})();
+
+// Jan Samvad: validate and open a prefilled email
+(function(){
+  var ids=['svName','svState','svMsg'],out=document.getElementById('svMsgOut');
+  ids.forEach(function(i){document.getElementById(i).addEventListener('input',function(){this.classList.remove('invalid')})});
+  document.getElementById('svBtn').addEventListener('click',function(){
+    var bad=ids.filter(function(i){var e=document.getElementById(i),b=!e.value.trim();e.classList.toggle('invalid',b);return b});
+    if(bad.length){out.textContent='Please fill in all the fields marked * before sending.';document.getElementById(bad[0]).focus();return}
+    var t=document.getElementById('svType').value,n=document.getElementById('svName').value.trim(),st=document.getElementById('svState').value.trim(),ms=document.getElementById('svMsg').value.trim();
+    out.textContent='Opening your email app… press Send there to submit.';
+    location.href='mailto:vanshsinghrawat97@gmail.com?subject='+encodeURIComponent('[Jan Samvad] '+t+' from '+n)+'&body='+encodeURIComponent('Type: '+t+'\nName: '+n+'\nState / City: '+st+'\n\n'+ms);
+  });
+})();
 </script>
 </body>
 </html>
